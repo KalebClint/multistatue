@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://eyta44dyjhb4"]
+
+[ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="1_ruqxk"]
+[ext_resource type="Texture2D" uid="uid://jebbi8qcj5kh" path="res://Imports/UI/Mainbutton/MainButtonNormal.png" id="2_w8f4v"]
+[ext_resource type="Texture2D" uid="uid://cfnnro3p5f2co" path="res://Imports/UI/Mainbutton/MainButtonPressed.png" id="3_w1j80"]
+[ext_resource type="Texture2D" uid="uid://c6i0jqx0p1pot" path="res://Imports/UI/Mainbutton/MainButtonHighlighted.png" id="4_iprc4"]
+
+[node name="MainButton" type="Label"]
+top_level = true
+offset_left = 3.0
+offset_top = 12.0
+offset_right = 188.0
+offset_bottom = 46.0
+theme = ExtResource("1_ruqxk")
+text = "TEXT HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MainButton" type="TextureButton" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 4.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_w8f4v")
+texture_pressed = ExtResource("3_w1j80")
+texture_hover = ExtResource("4_iprc4")
+stretch_mode = 0

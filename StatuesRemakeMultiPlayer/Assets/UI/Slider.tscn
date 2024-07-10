@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wy3ian2coui8"]
+
+[ext_resource type="Script" path="res://Scripts/MenuScripts/Slider.gd" id="1_0vebm"]
+[ext_resource type="Texture2D" uid="uid://d20bkqd8rdxfd" path="res://Imports/UI/Slider/FrameUnder.png" id="2_jeu2k"]
+[ext_resource type="Texture2D" uid="uid://b287nurgc3yqt" path="res://Imports/UI/Slider/SliderFrame.png" id="3_dmp6b"]
+[ext_resource type="Texture2D" uid="uid://ldvgv5gkdv8w" path="res://Imports/UI/Slider/FrameProgress.png" id="4_e7uu8"]
+
+[node name="Slider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0vebm")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 50.0
+texture_under = ExtResource("4_e7uu8")
+texture_over = ExtResource("3_dmp6b")
+texture_progress = ExtResource("2_jeu2k")
+
+[connection signal="mouse_entered" from="TextureProgressBar" to="." method="MouseOn"]
+[connection signal="mouse_exited" from="TextureProgressBar" to="." method="MouseOff"]

@@ -1,0 +1,250 @@
+[gd_scene load_steps=6 format=3 uid="uid://bk48tarmsgeyo"]
+
+[ext_resource type="Script" path="res://Scripts/MenuScripts/PauseMenu.gd" id="1_joiem"]
+[ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="2_xni7g"]
+[ext_resource type="PackedScene" uid="uid://bjefwgtou7ain" path="res://Assets/UI/BackButton.tscn" id="3_3mmdf"]
+[ext_resource type="PackedScene" uid="uid://eyta44dyjhb4" path="res://Assets/UI/mainButton.tscn" id="4_3fy7w"]
+[ext_resource type="PackedScene" uid="uid://wy3ian2coui8" path="res://Assets/UI/Slider.tscn" id="4_eaps2"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_joiem")
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TabBar" type="TabBar" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 268.0
+offset_top = 43.0
+offset_right = 804.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_xni7g")
+tab_count = 5
+clip_tabs = false
+scrolling_enabled = false
+scroll_to_selected = false
+tab_0/title = "General"
+tab_1/title = "Audio"
+tab_2/title = "Video"
+tab_3/title = "Controls"
+tab_4/title = "Credits"
+
+[node name="Panel" type="Panel" parent="Options/TabBar"]
+modulate = Color(1, 1, 1, 0.67451)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -506.0
+offset_top = 18.0
+offset_right = 554.0
+offset_bottom = 526.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" parent="Options/TabBar" instance=ExtResource("3_3mmdf")]
+z_index = 1
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = 462.0
+offset_right = -634.0
+offset_bottom = 483.0
+grow_vertical = 0
+
+[node name="General" type="Control" parent="Options/TabBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Quit" parent="Options/TabBar/General" instance=ExtResource("4_3fy7w")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 81.0
+offset_right = 93.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leave Game"
+
+[node name="Continue" parent="Options/TabBar/General" instance=ExtResource("4_3fy7w")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = 170.0
+offset_right = 93.0
+offset_bottom = 204.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+
+[node name="Audio" type="Control" parent="Options/TabBar"]
+visible = false
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 45.0
+offset_right = 90.0
+offset_bottom = 85.0
+
+[node name="SliderVol" parent="Options/TabBar/Audio" instance=ExtResource("4_eaps2")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -65.0
+offset_top = 91.0
+offset_right = 532.0
+offset_bottom = 141.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVol"]
+layout_mode = 0
+offset_left = 190.0
+offset_top = -36.0
+offset_right = 369.0
+offset_bottom = -2.0
+text = "Volume Overall"
+
+[node name="SliderVolMusic" parent="Options/TabBar/Audio" instance=ExtResource("4_eaps2")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -65.0
+offset_top = 195.0
+offset_right = 532.0
+offset_bottom = 245.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVolMusic"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = -36.0
+offset_right = 379.0
+offset_bottom = -2.0
+text = "Music Volume"
+
+[node name="SliderVolSFX" parent="Options/TabBar/Audio" instance=ExtResource("4_eaps2")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -65.0
+offset_top = 305.0
+offset_right = 532.0
+offset_bottom = 355.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVolSFX"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = -36.0
+offset_right = 418.0
+offset_bottom = -2.0
+text = "Sound Affects Volume"
+
+[node name="Video" type="Control" parent="Options/TabBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Fullscreen" type="CheckBox" parent="Options/TabBar/Video"]
+layout_mode = 0
+offset_left = -25.0
+offset_top = 351.0
+offset_right = 82.0
+offset_bottom = 382.0
+scale = Vector2(1.53449, 1.53449)
+theme = ExtResource("2_xni7g")
+text = "Fullscreen"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Windowed" type="CheckBox" parent="Options/TabBar/Video"]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 351.0
+offset_right = 325.0
+offset_bottom = 382.0
+scale = Vector2(1.53449, 1.53449)
+theme = ExtResource("2_xni7g")
+text = "Windowed"
+icon_alignment = 1
+expand_icon = true
+
+[node name="Borderless" type="CheckBox" parent="Options/TabBar/Video"]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 351.0
+offset_right = 559.0
+offset_bottom = 382.0
+scale = Vector2(1.53449, 1.53449)
+theme = ExtResource("2_xni7g")
+text = "Borderless"
+icon_alignment = 1
+expand_icon = true
+
+[node name="OptionButton" type="OptionButton" parent="Options/TabBar/Video"]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 222.0
+offset_right = 433.0
+offset_bottom = 256.0
+
+[node name="Label" type="Label" parent="Options/TabBar/Video/OptionButton"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = -44.0
+offset_right = 186.0
+offset_bottom = -10.0
+text = "Resolution"
+
+[node name="Controls" type="Control" parent="Options/TabBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Credits" type="Control" parent="Options/TabBar"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="tab_changed" from="Options/TabBar" to="." method="TabChanged"]
+[connection signal="pressed" from="Options/TabBar/BackButton" to="." method="BackPressed"]
+[connection signal="pressed" from="Options/TabBar/General/Quit/MainButton" to="." method="LeaveGamePressed"]
+[connection signal="pressed" from="Options/TabBar/General/Continue/MainButton" to="." method="ContinuePressed"]
+[connection signal="toggled" from="Options/TabBar/Video/Fullscreen" to="." method="fullscreenToggled"]
+[connection signal="toggled" from="Options/TabBar/Video/Windowed" to="." method="_on_windowed_toggled"]
+[connection signal="toggled" from="Options/TabBar/Video/Borderless" to="." method="_on_borderless_toggled"]
+[connection signal="item_selected" from="Options/TabBar/Video/OptionButton" to="." method="_on_option_button_item_selected"]
+
+[editable path="Options/TabBar/General/Quit"]
+[editable path="Options/TabBar/General/Continue"]
