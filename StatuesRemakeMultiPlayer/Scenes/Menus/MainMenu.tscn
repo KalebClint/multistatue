@@ -11,9 +11,17 @@ script = ExtResource("1_ycha7")
 [node name="MainMenu" type="Control" parent="."]
 visible = false
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="QuitButton" parent="MainMenu" instance=ExtResource("2_vq8hd")]
 layout_mode = 1
@@ -82,10 +90,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 387.5
-offset_top = 82.0
-offset_right = 724.5
-offset_bottom = 203.0
+offset_left = -151.0
+offset_top = -242.0
+offset_right = 150.08
+offset_bottom = -141.96
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_81mnq")

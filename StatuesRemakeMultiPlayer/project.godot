@@ -13,3 +13,7 @@ config_version=5
 config/name="StatuesRemakeMultiPlayer"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+
+[autoload]
+
+GlobalScript="*res://Scripts/globalScript.gd"

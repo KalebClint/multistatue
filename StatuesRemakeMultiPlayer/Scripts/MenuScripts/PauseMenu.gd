@@ -35,7 +35,6 @@ var Resolutions: Dictionary = {
 @onready var borderless = $Options/TabBar/Video/Borderless
 
 
-
 var mainMenu : bool = true
 
 func _ready():
@@ -90,7 +89,6 @@ func ContinuePressed():
 	hide()
 	if mainMenu:
 		$"../MainMenu".show()
-
 
 # VIDEO SETTINGS
 

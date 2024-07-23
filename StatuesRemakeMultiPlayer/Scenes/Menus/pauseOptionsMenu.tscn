@@ -11,9 +11,17 @@ script = ExtResource("1_joiem")
 
 [node name="Options" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TabBar" type="TabBar" parent="Options"]
 layout_mode = 1
@@ -22,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 268.0
-offset_top = 43.0
-offset_right = 804.0
-offset_bottom = 87.0
+offset_left = -281.0
+offset_top = -277.0
+offset_right = 255.0
+offset_bottom = -233.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_xni7g")
@@ -56,14 +64,18 @@ grow_vertical = 2
 
 [node name="BackButton" parent="Options/TabBar" instance=ExtResource("3_3mmdf")]
 z_index = 1
-layout_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -223.0
-offset_top = 462.0
-offset_right = -634.0
-offset_bottom = 483.0
-grow_vertical = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.0
+offset_top = 433.0
+offset_right = -343.0
+offset_bottom = 498.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="General" type="Control" parent="Options/TabBar"]
 visible = false
@@ -120,6 +132,7 @@ offset_right = 532.0
 offset_bottom = 141.0
 grow_horizontal = 1
 grow_vertical = 1
+sliderType = 1
 
 [node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVol"]
 layout_mode = 0
@@ -140,6 +153,7 @@ offset_right = 532.0
 offset_bottom = 245.0
 grow_horizontal = 1
 grow_vertical = 1
+sliderType = 2
 
 [node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVolMusic"]
 layout_mode = 0
@@ -160,6 +174,7 @@ offset_right = 532.0
 offset_bottom = 355.0
 grow_horizontal = 1
 grow_vertical = 1
+sliderType = 3
 
 [node name="Label" type="Label" parent="Options/TabBar/Audio/SliderVolSFX"]
 layout_mode = 0
@@ -176,10 +191,10 @@ offset_bottom = 40.0
 
 [node name="Fullscreen" type="CheckBox" parent="Options/TabBar/Video"]
 layout_mode = 0
-offset_left = -25.0
-offset_top = 351.0
-offset_right = 82.0
-offset_bottom = 382.0
+offset_left = -152.0
+offset_top = 90.0
+offset_right = -45.0
+offset_bottom = 121.0
 scale = Vector2(1.53449, 1.53449)
 theme = ExtResource("2_xni7g")
 text = "Fullscreen"
@@ -188,10 +203,10 @@ expand_icon = true
 
 [node name="Windowed" type="CheckBox" parent="Options/TabBar/Video"]
 layout_mode = 0
-offset_left = 215.0
-offset_top = 351.0
-offset_right = 325.0
-offset_bottom = 382.0
+offset_left = -152.0
+offset_top = 142.0
+offset_right = -42.0
+offset_bottom = 173.0
 scale = Vector2(1.53449, 1.53449)
 theme = ExtResource("2_xni7g")
 text = "Windowed"
@@ -200,10 +215,10 @@ expand_icon = true
 
 [node name="Borderless" type="CheckBox" parent="Options/TabBar/Video"]
 layout_mode = 0
-offset_left = 448.0
-offset_top = 351.0
-offset_right = 559.0
-offset_bottom = 382.0
+offset_left = -152.0
+offset_top = 197.0
+offset_right = -41.0
+offset_bottom = 228.0
 scale = Vector2(1.53449, 1.53449)
 theme = ExtResource("2_xni7g")
 text = "Borderless"
@@ -212,10 +227,10 @@ expand_icon = true
 
 [node name="OptionButton" type="OptionButton" parent="Options/TabBar/Video"]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 222.0
-offset_right = 433.0
-offset_bottom = 256.0
+offset_left = -181.0
+offset_top = 326.0
+offset_right = 77.0
+offset_bottom = 360.0
 
 [node name="Label" type="Label" parent="Options/TabBar/Video/OptionButton"]
 layout_mode = 0
@@ -224,6 +239,22 @@ offset_top = -44.0
 offset_right = 186.0
 offset_bottom = -10.0
 text = "Resolution"
+
+[node name="SliderBrightness" parent="Options/TabBar/Video" instance=ExtResource("4_eaps2")]
+layout_mode = 1
+offset_left = 150.0
+offset_top = 157.0
+offset_right = 110.0
+offset_bottom = 117.0
+sliderType = 0
+
+[node name="Label" type="Label" parent="Options/TabBar/Video/SliderBrightness"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = -48.0
+offset_right = 367.0
+offset_bottom = -14.0
+text = "Brightness"
 
 [node name="Controls" type="Control" parent="Options/TabBar"]
 visible = false

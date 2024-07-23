@@ -1,8 +1,9 @@
 extends Control
 
-
 @onready var slider = $TextureProgressBar
+@onready var pauseMenu = $"../../../.."
 
+@export_enum("Brightness", "MasterVolume", "MusicVolume","SfxVolume") var sliderType
 
 #Do i really need to explain this variable?
 var mouseInslider := false
@@ -18,6 +19,7 @@ func _input(event):
 func setValue(_slider : TextureProgressBar):
 	#Set value to wherever mouse is
 	_slider.value = ratioInBody(_slider) * _slider.max_value
+	GlobalScript.setVariables(sliderType,_slider.value)
 
 func ratioInBody(_slider : TextureProgressBar):
 	#Find position of mouse in body
