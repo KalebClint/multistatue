@@ -7,6 +7,8 @@ var masterVolume : int
 var musicVolume : int
 var sfxVolume : int
 
+var soloPlayer : bool
+
 func setVariables(sliderType,_slider):
 	if sliderType == 0:#Brightness
 		brightness = _slider

@@ -12,11 +12,13 @@ func _ready():
 
 # Solo Play Button, when clicked loads in game as mode of single player.
 func OnPlayPressed():
-	pass #Load Scene in solo
+	GlobalScript.soloPlayer = true
+	get_tree().change_scene_to_file("res://Scenes/Game/gameScene.tscn")
 
 # Multi Play Button, when clicked loads in game as mode of multiplayer.
 func OnMultiPlayPressed():
-	pass #Load Scene in multi
+	GlobalScript.soloPlayer = false
+	get_tree().change_scene_to_file("res://Scenes/Game/gameScene.tscn")
 
 #Options button, hides main menu and shows options menu
 func OnOptionsPressed():

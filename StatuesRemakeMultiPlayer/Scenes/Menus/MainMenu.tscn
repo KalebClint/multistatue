@@ -9,7 +9,6 @@
 script = ExtResource("1_ycha7")
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -102,6 +101,7 @@ text = "STATUES"
 scroll_active = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_tg8sr")]
+visible = false
 
 [connection signal="pressed" from="MainMenu/QuitButton/MainButton" to="." method="OnQuitPressed"]
 [connection signal="pressed" from="MainMenu/OptionsButton/MainButton" to="." method="OnOptionsPressed"]
