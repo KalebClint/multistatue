@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbsgoqoophg0w"]
+[gd_scene load_steps=6 format=3 uid="uid://bbsgoqoophg0w"]
 
 [ext_resource type="PackedScene" uid="uid://dprgpjiv57hbc" path="res://Assets/player/player.tscn" id="1_gxm2s"]
-[ext_resource type="Script" path="res://Scripts/Multiplayer/MultiController.gd" id="2_ldwcu"]
+[ext_resource type="PackedScene" uid="uid://b33l8umpcauoq" path="res://Scenes/Menus/multiplayerController.tscn" id="2_t4y6d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xe7ow"]
 size = Vector3(200, 0.1, 200)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bow8t"]
 size = Vector3(200, 0.1, 200)
+
+[sub_resource type="Environment" id="Environment_p8aiq"]
+background_energy_multiplier = 0.1
 
 [node name="GameScene" type="Node3D"]
 
@@ -23,7 +26,13 @@ shape = SubResource("BoxShape3D_bow8t")
 [node name="PlayerSpawner" type="Node3D" parent="."]
 transform = Transform3D(0.999994, -0.0035081, 0, 0.0035081, 0.999994, 0, 0, 0, 1, -56.8407, 13.1692, 0)
 
-[node name="Player" parent="." instance=ExtResource("1_gxm2s")]
+[node name="MultiplayerController" parent="." instance=ExtResource("2_t4y6d")]
+playerScene = ExtResource("1_gxm2s")
 
-[node name="MultiController" type="Node3D" parent="."]
-script = ExtResource("2_ldwcu")
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Assets/player/player.tscn")
+spawn_path = NodePath("..")
+spawn_limit = 5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p8aiq")

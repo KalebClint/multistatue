@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://b33l8umpcauoq"]
+
+[ext_resource type="Script" path="res://Scripts/Multiplayer/MultiController.gd" id="1_i6pet"]
+[ext_resource type="PackedScene" uid="uid://eyta44dyjhb4" path="res://Assets/UI/mainButton.tscn" id="2_6v21m"]
+
+[node name="MultiplayerController" type="CanvasLayer"]
+script = ExtResource("1_i6pet")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 234.0
+offset_top = 159.0
+offset_right = 899.0
+offset_bottom = 454.0
+
+[node name="HostButton" parent="Panel" instance=ExtResource("2_6v21m")]
+offset_left = 456.0
+offset_top = 276.0
+offset_right = 641.0
+offset_bottom = 310.0
+text = "Host Game"
+
+[node name="JoinButton" parent="Panel" instance=ExtResource("2_6v21m")]
+offset_left = 455.0
+offset_top = 366.0
+offset_right = 640.0
+offset_bottom = 400.0
+text = "Join Game"
+
+[connection signal="pressed" from="Panel/HostButton/MainButton" to="." method="HostButtonPressed"]
+[connection signal="pressed" from="Panel/JoinButton/MainButton" to="." method="JoinButtonPressed"]
+
+[editable path="Panel/HostButton"]
+[editable path="Panel/JoinButton"]
