@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbsgoqoophg0w"]
+[gd_scene load_steps=7 format=3 uid="uid://bbsgoqoophg0w"]
 
 [ext_resource type="PackedScene" uid="uid://dprgpjiv57hbc" path="res://Assets/player/player.tscn" id="1_gxm2s"]
 [ext_resource type="Script" path="res://Scenes/Game/GameManager.gd" id="1_hgw25"]
 [ext_resource type="PackedScene" uid="uid://b33l8umpcauoq" path="res://Scenes/Menus/multiplayerController.tscn" id="2_t4y6d"]
-[ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="4_hxi4v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xe7ow"]
 size = Vector3(200, 0.1, 200)
@@ -16,7 +15,6 @@ background_energy_multiplier = 0.1
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_hgw25")
-playerScene = ExtResource("1_gxm2s")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -40,5 +38,3 @@ spawn_limit = 4
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_p8aiq")
-
-[node name="PauseMenu" parent="." instance=ExtResource("4_hxi4v")]

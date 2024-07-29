@@ -27,14 +27,16 @@ var gravity = 20
 var pushForce = 5
 
 func _enter_tree():
-	set_multiplayer_authority(name.to_int())
+	if !GlobalScript.soloPlayer:
+		set_multiplayer_authority(name.to_int())
 
 func _ready():
-	camera.current = is_multiplayer_authority()
+	if !GlobalScript.soloPlayer:
+		camera.current = is_multiplayer_authority()
 
 
 func _unhandled_input(event):
-	if !playerBeingKilledBrutaly && is_multiplayer_authority():
+	if !playerBeingKilledBrutaly:
 		if event is InputEventMouseButton:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		elif event.is_action_pressed("ui_cancel"):
@@ -47,7 +49,7 @@ func _unhandled_input(event):
 
 func _physics_process(delta):
 	
-	if !playerBeingKilledBrutaly && is_multiplayer_authority():
+	if !playerBeingKilledBrutaly:
 	
 		if Input.is_action_just_pressed("interact"):
 			var col = interRay.get_collider()

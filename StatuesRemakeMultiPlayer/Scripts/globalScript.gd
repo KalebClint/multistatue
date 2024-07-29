@@ -7,6 +7,8 @@ var masterVolume : int
 var musicVolume : int
 var sfxVolume : int
 
+var mainMenu : bool
+
 var soloPlayer : bool
 
 func setVariables(sliderType,_slider):

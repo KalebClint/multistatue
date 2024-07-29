@@ -4,6 +4,8 @@ var enabled : bool
 
 var peer = ENetMultiplayerPeer.new()
 @export var playerScene : PackedScene
+@onready var gameScene = $".."
+
 
 func _ready():
 	enabled = !GlobalScript.soloPlayer
@@ -15,8 +17,8 @@ func _ready():
 func HostButtonPressed():
 	peer.create_server(1027)
 	multiplayer.multiplayer_peer = peer
-	multiplayer.peer_connected.connect(addPlayer)
-	addPlayer()
+	multiplayer.peer_connected.connect(gameScene.addPlayer)
+	gameScene.addPlayer()
 	
 	hide()
 
@@ -26,18 +28,4 @@ func JoinButtonPressed():
 	
 	hide()
 
-func addPlayer(id = 1):
-	var player = playerScene.instantiate()
-	player.name = str(id)
-	call_deferred("add_child",player)
-	
-func cowardLeft(id):
-	multiplayer.peer_disconnected.connect(kickCoward)
-	kickCoward(id)
-	
-func kickCoward(id):
-	rpc("_kickCoward",id)
-	
-@rpc("any_peer","call_local")
-func _kickCoward(id):
-	get_node(str(id)).queue_free()
+

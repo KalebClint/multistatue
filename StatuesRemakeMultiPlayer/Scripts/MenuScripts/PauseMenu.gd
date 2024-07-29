@@ -4,8 +4,6 @@ extends CanvasLayer
 
 #Actually, not nearly as much as i thot, guess im just too smat.
 
-
-
 #Heres a dictoinary, cuz i totally know how to use em.
 
 var Resolutions: Dictionary = {
@@ -34,9 +32,6 @@ var Resolutions: Dictionary = {
 @onready var windowed = $Options/TabBar/Video/Windowed
 @onready var borderless = $Options/TabBar/Video/Borderless
 
-
-var mainMenu : bool = true
-
 func _ready():
 	
 	#Make sure General is the first tab on start. duh.
@@ -44,7 +39,7 @@ func _ready():
 	general.show()
 	tab.current_tab = 0
 	
-	if mainMenu:
+	if GlobalScript.mainMenu:
 		$Options/TabBar/General/Quit.hide()
 		$Options/TabBar/General/Continue.hide()
 		general.hide()
@@ -78,8 +73,12 @@ func hideAll():
 
 func BackPressed(): # Signal For when back button pressed. duh.
 	hide()
-	if mainMenu:
+	if GlobalScript.mainMenu:
 		$"../MainMenu".show()
+	else:
+		hide()
+		get_tree().paused = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func LeaveGamePressed():
 	get_tree().quit()
@@ -87,7 +86,7 @@ func LeaveGamePressed():
 
 func ContinuePressed():
 	hide()
-	if mainMenu:
+	if GlobalScript.mainMenu:
 		$"../MainMenu".show()
 
 # VIDEO SETTINGS

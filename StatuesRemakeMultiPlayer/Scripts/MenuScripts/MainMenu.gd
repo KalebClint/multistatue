@@ -9,10 +9,12 @@ extends CanvasLayer
 func _ready():
 	options.hide()
 	menu.show()
+	GlobalScript.mainMenu = true
 
 # Solo Play Button, when clicked loads in game as mode of single player.
 func OnPlayPressed():
 	GlobalScript.soloPlayer = true
+	GlobalScript.mainMenu = false
 	get_tree().change_scene_to_file("res://Scenes/Game/gameScene.tscn")
 
 # Multi Play Button, when clicked loads in game as mode of multiplayer.
