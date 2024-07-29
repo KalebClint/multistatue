@@ -13,6 +13,7 @@ offset_right = 899.0
 offset_bottom = 454.0
 
 [node name="HostButton" parent="Panel" instance=ExtResource("2_6v21m")]
+layout_mode = 0
 offset_left = 456.0
 offset_top = 276.0
 offset_right = 641.0
@@ -20,6 +21,7 @@ offset_bottom = 310.0
 text = "Host Game"
 
 [node name="JoinButton" parent="Panel" instance=ExtResource("2_6v21m")]
+layout_mode = 0
 offset_left = 455.0
 offset_top = 366.0
 offset_right = 640.0

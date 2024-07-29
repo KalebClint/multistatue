@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @onready var game_manager = $".."
 
 @onready var neck := $Neck
