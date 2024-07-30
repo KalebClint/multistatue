@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dprgpjiv57hbc"]
+[gd_scene load_steps=11 format=3 uid="uid://dprgpjiv57hbc"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_25mtf"]
 [ext_resource type="Texture2D" uid="uid://b85dubv2v1y7k" path="res://Assets/player/flashlightTexture.jpg" id="2_o85q4"]
+[ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="3_kf22j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lhtwv"]
 
@@ -127,3 +128,5 @@ target_position = Vector3(0, 0, -3)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_e2rf1")
+
+[node name="PauseMenu" parent="." instance=ExtResource("3_kf22j")]

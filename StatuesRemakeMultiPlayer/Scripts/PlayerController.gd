@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@onready var game_manager = $".."
+@onready var game_manager = $"../.."
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera
@@ -9,6 +9,8 @@ extends CharacterBody3D
 @onready var ray = $Neck/Camera/StatueRay
 
 @onready var interRay = $Neck/Camera/InterRay
+
+@onready var pauseMenu = $PauseMenu
 
 var lightStrength = 75
 
@@ -33,6 +35,7 @@ func _enter_tree():
 func _ready():
 	if !GlobalScript.soloPlayer:
 		camera.current = is_multiplayer_authority()
+	pauseMenu.hide()
 
 
 func _unhandled_input(event):
@@ -56,6 +59,11 @@ func _physics_process(delta):
 			if col != null:
 				if col.is_in_group("Door"):
 					col.toggle()
+		if Input.is_action_just_pressed("pause"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			pauseMenu.show()
+			if GlobalScript.soloPlayer:
+				get_tree().paused = true
 		
 		if statue != null:
 			if statue.inCamView:
