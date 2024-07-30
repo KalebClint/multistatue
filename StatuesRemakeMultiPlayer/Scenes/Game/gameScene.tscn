@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bbsgoqoophg0w"]
 
 [ext_resource type="PackedScene" uid="uid://dprgpjiv57hbc" path="res://Assets/player/player.tscn" id="1_gxm2s"]
-[ext_resource type="Script" path="res://Scenes/Game/GameManager.gd" id="1_hgw25"]
+[ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_hgw25"]
 [ext_resource type="PackedScene" uid="uid://b33l8umpcauoq" path="res://Scenes/Menus/multiplayerController.tscn" id="2_t4y6d"]
-[ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="4_hxi4v"]
+[ext_resource type="PackedScene" uid="uid://g1hh3lur2fnr" path="res://Assets/Statue/statue.tscn" id="4_rq3h1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xe7ow"]
 size = Vector3(200, 0.1, 200)
@@ -33,12 +33,17 @@ transform = Transform3D(0.999994, -0.0035081, 0, 0.0035081, 0.999994, 0, 0, 0, 1
 [node name="MultiplayerController" parent="." instance=ExtResource("2_t4y6d")]
 playerScene = ExtResource("1_gxm2s")
 
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_p8aiq")
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="Players"]
 _spawnable_scenes = PackedStringArray("res://Assets/player/player.tscn")
 spawn_path = NodePath("..")
 spawn_limit = 4
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_p8aiq")
+[node name="Statues" type="Node3D" parent="."]
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_hxi4v")]
+[node name="Statue" parent="Statues" instance=ExtResource("4_rq3h1")]
+transform = Transform3D(-1.88981, 0, -1.65212e-07, 0, 1.88981, 0, 1.65212e-07, 0, -1.88981, 0, 0, -38.4498)

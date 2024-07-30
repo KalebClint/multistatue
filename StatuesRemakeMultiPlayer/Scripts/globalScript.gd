@@ -11,6 +11,11 @@ var mainMenu : bool
 
 var soloPlayer : bool
 
+#FOR NARNIA!!! (STATUES)
+
+var players = []
+
+
 func setVariables(sliderType,_slider):
 	if sliderType == 0:#Brightness
 		brightness = _slider
