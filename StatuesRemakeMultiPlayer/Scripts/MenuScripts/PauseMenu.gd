@@ -18,7 +18,7 @@ var Resolutions: Dictionary = {
 }
 
 @onready var resOptions = $Options/TabBar/Video/OptionButton
-
+@onready var gameScene = $".."
 
 @onready var general = $Options/TabBar/General # Index = 0
 @onready var audio = $Options/TabBar/Audio # Index = 1
@@ -45,6 +45,8 @@ func _ready():
 		general.hide()
 		tab.current_tab = 1
 		tab.set_tab_hidden(0,true)
+	else:
+		$Options/TabBar/BackButton.hide()
 		
 	for r in Resolutions:
 		resOptions.add_item(r)
@@ -75,12 +77,10 @@ func BackPressed(): # Signal For when back button pressed. duh.
 	hide()
 	if GlobalScript.mainMenu:
 		$"../MainMenu".show()
-	else:
-		hide()
-		get_tree().paused = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		
 
 func LeaveGamePressed():
+	#gameScene.cowardLeft() figure out later
 	get_tree().quit()
 	# In main menu wont exist, but in game will leave mlutiplayer if needed, then go to main menu.
 
@@ -88,6 +88,11 @@ func ContinuePressed():
 	hide()
 	if GlobalScript.mainMenu:
 		$"../MainMenu".show()
+	else:
+		hide()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		if GlobalScript.soloPlayer:
+			get_tree().paused = false
 
 # VIDEO SETTINGS
 

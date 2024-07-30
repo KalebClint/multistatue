@@ -20,6 +20,7 @@ func OnPlayPressed():
 # Multi Play Button, when clicked loads in game as mode of multiplayer.
 func OnMultiPlayPressed():
 	GlobalScript.soloPlayer = false
+	GlobalScript.mainMenu = false
 	get_tree().change_scene_to_file("res://Scenes/Game/gameScene.tscn")
 
 #Options button, hides main menu and shows options menu
@@ -32,7 +33,6 @@ func OnOptionsPressed():
 func OnQuitPressed():
 	#Pretty easy, ik.
 	get_tree().quit()
-
 
 # THIS IS OPTIONS MENU CODE
 

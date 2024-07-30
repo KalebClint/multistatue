@@ -183,9 +183,10 @@ offset_left = 164.0
 offset_top = -36.0
 offset_right = 418.0
 offset_bottom = -2.0
-text = "Sound Affects Volume"
+text = "Sound Effects Volume"
 
 [node name="Video" type="Control" parent="Options/TabBar"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -258,7 +259,6 @@ offset_bottom = -14.0
 text = "Brightness"
 
 [node name="Controls" type="Control" parent="Options/TabBar"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

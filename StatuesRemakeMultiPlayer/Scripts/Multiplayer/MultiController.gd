@@ -6,7 +6,6 @@ var peer = ENetMultiplayerPeer.new()
 @export var playerScene : PackedScene
 @onready var gameScene = $".."
 
-
 func _ready():
 	enabled = !GlobalScript.soloPlayer
 	if enabled:

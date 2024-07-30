@@ -28,6 +28,6 @@ func _ready():
 func _physics_process(delta):
 	if Input.is_action_just_pressed("pause"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		get_tree().paused = true
 		pauseMenu.show()
-		
+		if GlobalScript.soloPlayer:
+			get_tree().paused = true
