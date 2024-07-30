@@ -1,9 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbsgoqoophg0w"]
+[gd_scene load_steps=11 format=3 uid="uid://bbsgoqoophg0w"]
 
 [ext_resource type="PackedScene" uid="uid://dprgpjiv57hbc" path="res://Assets/player/player.tscn" id="1_gxm2s"]
 [ext_resource type="Script" path="res://Scripts/GameManager.gd" id="1_hgw25"]
 [ext_resource type="PackedScene" uid="uid://b33l8umpcauoq" path="res://Scenes/Menus/multiplayerController.tscn" id="2_t4y6d"]
 [ext_resource type="PackedScene" uid="uid://g1hh3lur2fnr" path="res://Assets/Statue/statue.tscn" id="4_rq3h1"]
+
+[sub_resource type="Environment" id="Environment_p8aiq"]
+background_energy_multiplier = 0.1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_2s42j"]
+vertices = PackedVector3Array(27, 0.497625, -8, 27.5, 0.497625, -8, 27.5, 0.497625, -99.5, 12.75, 0.497625, 6.25, 27, 0.497625, -8, 27.5, 0.497625, -99.5, -99.5, 0.497625, -99.5, -99.5, 0.497625, 6.75, -99.5, 0.497625, 6.75, 12.75, 0.497625, 6.75, 12.75, 0.497625, 6.25, 28.75, 0.497625, -7.25, 28.75, 0.497625, -6.5, 99.5, 0.497625, -6.5, 27.5, 0.497625, -8, 28.75, 0.497625, -7.25, 99.5, 0.497625, -6.5, 99.5, 0.497625, -99.5, 27.5, 0.497625, -99.5, 14, 30.2476, 6.5, 14.25, 30.2476, 7, 27.75, 30.2476, -6.5, 27.25, 30.2476, -6.75, 99.5, 0.497625, -6.5, 28.75, 0.497625, -6.5, 28.75, 0.497625, -6, 99.5, 0.497625, -6.5, 28.75, 0.497625, -6, 14.75, 0.497625, 8, 14, 0.497625, 99.5, 99.5, 0.497625, 99.5, 14.75, 0.497625, 8, 14, 0.497625, 8, 14, 0.497625, 99.5, 14, 0.497625, 99.5, 14, 0.497625, 8, 12.75, 0.497625, 7.25, -99.5, 0.497625, 6.75, -99.5, 0.497625, 99.5, 12.75, 0.497625, 7.25, 12.75, 0.497625, 6.75, -99.5, 0.497625, 6.75)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 7), PackedInt32Array(5, 7, 6), PackedInt32Array(10, 9, 8), PackedInt32Array(13, 12, 11), PackedInt32Array(15, 14, 16), PackedInt32Array(16, 14, 18), PackedInt32Array(16, 18, 17), PackedInt32Array(22, 21, 19), PackedInt32Array(19, 21, 20), PackedInt32Array(25, 24, 23), PackedInt32Array(27, 26, 28), PackedInt32Array(28, 26, 29), PackedInt32Array(29, 26, 30), PackedInt32Array(33, 32, 31), PackedInt32Array(35, 34, 36), PackedInt32Array(36, 34, 38), PackedInt32Array(36, 38, 37), PackedInt32Array(41, 40, 39)]
 
 [sub_resource type="BoxMesh" id="BoxMesh_xe7ow"]
 size = Vector3(200, 0.1, 200)
@@ -11,21 +18,15 @@ size = Vector3(200, 0.1, 200)
 [sub_resource type="BoxShape3D" id="BoxShape3D_bow8t"]
 size = Vector3(200, 0.1, 200)
 
-[sub_resource type="Environment" id="Environment_p8aiq"]
-background_energy_multiplier = 0.1
+[sub_resource type="BoxMesh" id="BoxMesh_qs3ee"]
+size = Vector3(20, 40, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ibfoh"]
+size = Vector3(20, 40, 1)
 
 [node name="GameScene" type="Node3D"]
 script = ExtResource("1_hgw25")
 playerScene = ExtResource("1_gxm2s")
-
-[node name="Floor" type="StaticBody3D" parent="."]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("BoxMesh_xe7ow")
-skeleton = NodePath("../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_bow8t")
 
 [node name="PlayerSpawner" type="Node3D" parent="."]
 transform = Transform3D(0.999994, -0.0035081, 0, 0.0035081, 0.999994, 0, 0, 0, 1, -56.8407, 13.1692, 0)
@@ -47,3 +48,26 @@ spawn_limit = 4
 
 [node name="Statue" parent="Statues" instance=ExtResource("4_rq3h1")]
 transform = Transform3D(-1.88981, 0, -1.65212e-07, 0, 1.88981, 0, 1.65212e-07, 0, -1.88981, 0, 0, -38.4498)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_2s42j")
+
+[node name="Map" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D/Map"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Map/Floor"]
+mesh = SubResource("BoxMesh_xe7ow")
+skeleton = NodePath("../../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Map/Floor"]
+shape = SubResource("BoxShape3D_bow8t")
+
+[node name="Wall" type="StaticBody3D" parent="NavigationRegion3D/Map"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 20.8089, 9.74763, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Map/Wall"]
+mesh = SubResource("BoxMesh_qs3ee")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Map/Wall"]
+shape = SubResource("BoxShape3D_ibfoh")

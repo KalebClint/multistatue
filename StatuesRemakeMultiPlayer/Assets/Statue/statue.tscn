@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=3 uid="uid://g1hh3lur2fnr"]
 
 [ext_resource type="Script" path="res://Scripts/Statue/statueController.gd" id="1_1nt0w"]
-[ext_resource type="Script" path="res://Assets/Statue/statuePose.gd" id="2_ekvra"]
+[ext_resource type="Script" path="res://Scripts/Statue/statuePose.gd" id="2_ekvra"]
 [ext_resource type="Texture2D" uid="uid://b22cosjfrnugi" path="res://Imports/Statue/Statue_statueTexture.jpg" id="2_eqx8i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_34r00"]
@@ -1978,7 +1978,7 @@ bones/64/rotation = Quaternion(3.82607e-07, -0.728155, -0.685412, 5.75791e-07)
 bones/64/scale = Vector3(1, 1, 1)
 
 [node name="Sphere" type="BoneAttachment3D" parent="Mesh/NormalPose/Skeleton3D"]
-transform = Transform3D(0.554184, -0.82534, 0.10814, 0.830208, 0.557453, 1.37091e-06, -0.0602842, 0.0897781, 0.994136, -0.236817, 5.71589, 0.622868)
+transform = Transform3D(0.554184, -0.82534, 0.10814, 0.830208, 0.557453, 1.43051e-06, -0.0602842, 0.089778, 0.994136, -0.236817, 5.71589, 0.622868)
 bone_name = "Sphere"
 bone_idx = 5
 
@@ -1987,7 +1987,7 @@ mesh = SubResource("ArrayMesh_26bol")
 skeleton = NodePath("")
 
 [node name="Sphere_001" type="BoneAttachment3D" parent="Mesh/NormalPose/Skeleton3D"]
-transform = Transform3D(0.554184, -0.82534, 0.10814, 0.830208, 0.557453, 1.37091e-06, -0.0602842, 0.0897781, 0.994136, -0.236817, 5.71589, 0.622868)
+transform = Transform3D(0.554184, -0.82534, 0.10814, 0.830208, 0.557453, 1.43051e-06, -0.0602842, 0.089778, 0.994136, -0.236817, 5.71589, 0.622868)
 bone_name = "Sphere.001"
 bone_idx = 6
 
@@ -2011,18 +2011,6 @@ libraries = {
 
 [node name="Raycasts" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.53311, 0)
-
-[node name="ray1" type="RayCast3D" parent="Raycasts"]
-target_position = Vector3(0, 0, 150)
-
-[node name="ray2" type="RayCast3D" parent="Raycasts"]
-target_position = Vector3(0, 0, 150)
-
-[node name="ray3" type="RayCast3D" parent="Raycasts"]
-target_position = Vector3(0, 0, 150)
-
-[node name="ray4" type="RayCast3D" parent="Raycasts"]
-target_position = Vector3(0, 0, 150)
 
 [connection signal="target_reached" from="NavAgent" to="." method="_on_nav_agent_target_reached"]
 [connection signal="velocity_computed" from="NavAgent" to="." method="_on_nav_agent_velocity_computed"]
