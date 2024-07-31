@@ -76,8 +76,10 @@ func _physics_process(delta):
 					lazerHitPlayer = true
 		
 	
-	if withinRange && camTotal > 0:
-		pass
+	if withinRange && camTotal > 0 && lazerHitPlayer:
+		seen = true
+	else:
+		seen = false
 		
 		
 	#Oki with all that fun stuff out of the wayu (thx mmultiplayer /:) now time for movement. ez clapz
