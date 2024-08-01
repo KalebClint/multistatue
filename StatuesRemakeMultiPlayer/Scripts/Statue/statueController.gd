@@ -155,7 +155,7 @@ func updateTargetLocation(targetLoc):
 	if targetLoc != null:
 		navAgent.target_position = targetLoc
 	else:
-		print("Target Non Existant")
+		print("zac says Target Non Existant")
 		
 func _on_nav_agent_velocity_computed(safe_velocity):
 	if !seen && withinRange && active:
@@ -226,16 +226,16 @@ func _on_visible_on_screen_notifier_3d_screen_exited():
 	camTotal -= 1
 	if statueBehaviour == 1:
 		if hathBeenSawed == true:
-			statueDisapear()
-			print("bye")
+			#statueDisapear()
+			print("zac says bye")
 			
 	if seen2 && statueBehaviour == 3:
-		print("dis 2")
-		statueDisapear()
+		print("zac says dis 2")
+		#statueDisapear()
 			
 	if statueBehaviour == 2 || 3:
 		if becomeActive == true && !active:
-			print("hi")
+			print("zac says hi")
 			statueAppear()
 			
 	
