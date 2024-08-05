@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=3 uid="uid://hm0aw38poplb"]
+
+[ext_resource type="Texture2D" uid="uid://cpljsqnsljey1" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_Artifact.png" id="1_midec"]
+[ext_resource type="Texture2D" uid="uid://5g646x7sshue" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_Hice.png" id="2_52vln"]
+[ext_resource type="Texture2D" uid="uid://br3iahu0lgj2g" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_MajeStick.png" id="3_h57hp"]
+[ext_resource type="Texture2D" uid="uid://doa42b6elp63h" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_LostTheGame.png" id="4_kwpvj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lls0"]
+resource_name = "Artifact"
+cull_mode = 2
+albedo_texture = ExtResource("1_midec")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0lm06"]
+resource_name = "Hice"
+cull_mode = 2
+albedo_texture = ExtResource("2_52vln")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3k707"]
+resource_name = "Stick"
+cull_mode = 2
+albedo_texture = ExtResource("3_h57hp")
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5skap"]
+resource_name = "TheGame"
+cull_mode = 2
+albedo_texture = ExtResource("4_kwpvj")
+roughness = 0.5
+emission_enabled = true
+emission_texture = ExtResource("4_kwpvj")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xmxdu"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 6, 0, 3, 0, 2, 0, 5, 0, 6, 0, 2, 0, 4, 0, 5, 0, 2, 0, 0, 0, 4, 0),
+"name": "Artifact",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}, {
+"aabb": AABB(-1, -1, 1, 2, 2, 1.00136e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"name": "Hice",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}, {
+"aabb": AABB(1, -1, -1, 1.00136e-05, 2, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"name": "Stick",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1.00136e-05, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"name": "TheGame",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_adr6y"]
+resource_name = "paintings_Cube"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 31, 255, 63, 255, 159, 255, 255, 255, 95, 255, 191, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 159, 255, 191, 255, 95, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(0, 0, 6, 0, 2, 0, 0, 0, 3, 0, 6, 0, 5, 0, 11, 0, 7, 0, 5, 0, 10, 0, 11, 0, 4, 0, 8, 0, 9, 0, 4, 0, 1, 0, 8, 0),
+"material": SubResource("StandardMaterial3D_7lls0"),
+"name": "Artifact",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 84, 213, 84, 213, 0, 0, 255, 127, 84, 213, 84, 213, 84, 213, 84, 213, 0, 0, 255, 127, 255, 191, 255, 191, 84, 213, 84, 213, 255, 191, 255, 191, 0, 0, 255, 127, 0, 0, 255, 127, 255, 191, 255, 191, 255, 191, 255, 191)
+}, {
+"aabb": AABB(-1, -1, 1, 2, 2, 1.00136e-05),
+"attribute_data": PackedByteArray(255, 95, 0, 0, 255, 159, 0, 0, 255, 95, 255, 63, 255, 159, 255, 63),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_0lm06"),
+"name": "Hice",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255)
+}, {
+"aabb": AABB(1, -1, -1, 1.00136e-05, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 95, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"material": SubResource("StandardMaterial3D_3k707"),
+"name": "Stick",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 84, 213, 170, 42, 170, 42, 170, 42, 170, 42, 170, 42, 170, 42, 170, 42, 170, 42)
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1.00136e-05, 2.00001),
+"attribute_data": PackedByteArray(255, 223, 255, 63, 255, 223, 255, 127, 255, 159, 255, 63, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"material": SubResource("StandardMaterial3D_5skap"),
+"name": "TheGame",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xmxdu")
+
+[node name="Cube" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.26448)
+mesh = SubResource("ArrayMesh_adr6y")
+skeleton = NodePath("")

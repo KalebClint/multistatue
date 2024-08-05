@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7c8l10yi2vvl"]
+
+[ext_resource type="PackedScene" uid="uid://eyta44dyjhb4" path="res://Assets/Ui/mainButton.tscn" id="1_7xnd4"]
+[ext_resource type="Script" path="res://Scenes/matchmaking.gd" id="1_k4tjf"]
+
+[node name="Matchmaking" type="CanvasLayer"]
+script = ExtResource("1_k4tjf")
+
+[node name="Host" parent="." instance=ExtResource("1_7xnd4")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 92.0
+offset_right = 50.0
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Host Game"
+
+[node name="Join" parent="." instance=ExtResource("1_7xnd4")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 11.0
+offset_right = 50.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join Game"
+
+[connection signal="pressed" from="Host/MainButton" to="." method="HostButtonPressed"]
+[connection signal="pressed" from="Join/MainButton" to="." method="JoinButtonPressed"]
+
+[editable path="Host"]
+[editable path="Join"]

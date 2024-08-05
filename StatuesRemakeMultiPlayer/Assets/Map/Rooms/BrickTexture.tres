@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dssg4k26ahg23"]
+
+[ext_resource type="Texture2D" uid="uid://kuwopbnvb4uf" path="res://Imports/MapPeices/Cells/Materials_DungeonStoneTexture.jpg" id="1_ubxt8"]
+
+[resource]
+resource_name = "BrickTexture"
+cull_mode = 2
+albedo_texture = ExtResource("1_ubxt8")

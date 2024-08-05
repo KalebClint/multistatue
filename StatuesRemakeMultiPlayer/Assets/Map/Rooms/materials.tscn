@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4mfkni07miit"]
+
+[ext_resource type="Material" uid="uid://dssg4k26ahg23" path="res://Assets/Map/Rooms/BrickTexture.tres" id="1_cgbj7"]
+[ext_resource type="Material" uid="uid://d3yms43m2yxrd" path="res://Assets/Map/Rooms/CarpetTexture.tres" id="2_plva6"]
+[ext_resource type="Material" uid="uid://bdmxybyvs0mlt" path="res://Assets/Map/Rooms/TileTexture.tres" id="3_pjpaa"]
+[ext_resource type="Material" uid="uid://c3sysptgluiwb" path="res://Assets/Map/Rooms/WoodTexture.tres" id="4_8nvkp"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_slmsf"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 18,
+"index_data": PackedByteArray(1, 0, 6, 0, 2, 0, 1, 0, 5, 0, 6, 0, 5, 0, 4, 0, 6, 0, 5, 0, 3, 0, 4, 0, 1, 0, 3, 0, 5, 0, 1, 0, 0, 0, 3, 0),
+"name": "BrickTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 255, 255, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1.00136e-05, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"name": "CarpetTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}, {
+"aabb": AABB(-1, -1, -1, 1.00136e-05, 2, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "TileTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0)
+}, {
+"aabb": AABB(-1, -1, 1, 2, 2, 1.00136e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"name": "WoodTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_h14k4"]
+resource_name = "Materials_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 31, 255, 63, 255, 31, 255, 127, 255, 95, 255, 191, 255, 159, 255, 191, 255, 95, 255, 63, 255, 95, 255, 63, 255, 159, 255, 63, 255, 95, 255, 127, 255, 95, 255, 127, 255, 95, 255, 127, 255, 159, 255, 127, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 18,
+"index_data": PackedByteArray(2, 0, 10, 0, 3, 0, 2, 0, 8, 0, 10, 0, 9, 0, 6, 0, 11, 0, 9, 0, 5, 0, 6, 0, 1, 0, 4, 0, 7, 0, 1, 0, 0, 0, 4, 0),
+"material": ExtResource("1_cgbj7"),
+"name": "BrickTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 84, 213, 255, 255, 255, 255, 254, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 0, 0, 255, 127, 0, 0, 255, 127, 255, 191, 255, 191, 255, 191, 255, 191, 0, 0, 255, 127, 170, 42, 170, 42, 170, 42, 170, 42, 0, 0, 255, 127, 255, 191, 255, 191, 170, 42, 170, 42, 255, 191, 255, 191, 170, 42, 170, 42)
+}, {
+"aabb": AABB(-1, 1, -1, 2, 1.00136e-05, 2.00001),
+"attribute_data": PackedByteArray(255, 223, 255, 63, 255, 223, 255, 127, 255, 159, 255, 63, 255, 159, 255, 127),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(3, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0),
+"material": ExtResource("2_plva6"),
+"name": "CarpetTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 254, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191)
+}, {
+"aabb": AABB(-1, -1, -1, 1.00136e-05, 2, 2.00001),
+"attribute_data": PackedByteArray(255, 95, 255, 255, 255, 159, 255, 255, 255, 95, 255, 191, 255, 159, 255, 191),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": ExtResource("3_pjpaa"),
+"name": "TileTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 84, 213, 0, 0, 255, 255, 254, 255, 84, 213, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 84, 213, 84, 213, 84, 213, 84, 213, 84, 213, 84, 213, 84, 213, 84, 213, 84, 213)
+}, {
+"aabb": AABB(-1, -1, 1, 2, 2, 1.00136e-05),
+"attribute_data": PackedByteArray(255, 95, 0, 0, 255, 159, 0, 0, 255, 95, 255, 63, 255, 159, 255, 63),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(2, 0, 1, 0, 3, 0, 2, 0, 0, 0, 1, 0),
+"material": ExtResource("4_8nvkp"),
+"name": "WoodTexture",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 255, 0, 0, 255, 191, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_slmsf")
+
+[node name="Cube" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.034595, 0.733643, 38.4622)
+mesh = SubResource("ArrayMesh_h14k4")
+skeleton = NodePath("")

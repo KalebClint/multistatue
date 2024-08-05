@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5ev5ckns0i7u"]
+
+[ext_resource type="Script" path="res://Scripts/WallSpawner.gd" id="1_ky5n6"]
+[ext_resource type="PackedScene" uid="uid://c5eljg273hxjf" path="res://Assets/Map/Decorative/Wall/Paintings/frameSqaure.tscn" id="2_tio4g"]
+[ext_resource type="PackedScene" uid="uid://c8t73c5da6exj" path="res://Assets/Map/Decorative/Wall/Paintings/frameCirlce.tscn" id="3_khni5"]
+[ext_resource type="PackedScene" uid="uid://cv1kqul81emls" path="res://Assets/Map/Decorative/Wall/Torch.tscn" id="4_x25h6"]
+
+[node name="WallSpawner" type="Node3D" groups=["wallSpawn"]]
+script = ExtResource("1_ky5n6")
+sqaureFrame = ExtResource("2_tio4g")
+circleFrame = ExtResource("3_khni5")
+torch = ExtResource("4_x25h6")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=13 format=3 uid="uid://dfef1iwka6li1"]
+
+[ext_resource type="Script" path="res://Scripts/FurntitureSpawner.gd" id="1_cj1oi"]
+[ext_resource type="PackedScene" uid="uid://qv4fi5ejhbln" path="res://Assets/Map/Decorative/Furntiture/circleTable.tscn" id="2_87yfk"]
+[ext_resource type="PackedScene" uid="uid://cvk5tcrpr5avf" path="res://Assets/Map/Decorative/Furntiture/squareTable.tscn" id="3_q04mq"]
+[ext_resource type="PackedScene" uid="uid://bq1y7d1p3ill2" path="res://Assets/Map/Decorative/Furntiture/couch.tscn" id="4_ia2om"]
+[ext_resource type="PackedScene" uid="uid://xiu5muvmylf3" path="res://Assets/Map/Decorative/Furntiture/bed.tscn" id="5_8mmtb"]
+[ext_resource type="PackedScene" uid="uid://de6yc1pofjd5s" path="res://Assets/Map/Decorative/Furntiture/WoodenChair.tscn" id="6_b6etw"]
+[ext_resource type="PackedScene" uid="uid://dm80tj0x483cj" path="res://Assets/Map/Decorative/Furntiture/broken_chair.tscn" id="7_w6871"]
+[ext_resource type="PackedScene" uid="uid://pq2t8wspou7m" path="res://Assets/Map/Decorative/Furntiture/desk.tscn" id="10_02ec6"]
+[ext_resource type="PackedScene" uid="uid://dwbtnjiwyvdvt" path="res://Assets/Map/Decorative/Furntiture/counter.tscn" id="11_g576h"]
+[ext_resource type="PackedScene" uid="uid://bbkqen1t0s6p3" path="res://Assets/Map/Decorative/Furntiture/boxOne.tscn" id="12_3ecyr"]
+[ext_resource type="PackedScene" uid="uid://d1sw5svr0rvf7" path="res://Assets/Map/Decorative/Furntiture/boxTwo.tscn" id="13_p0pul"]
+[ext_resource type="PackedScene" uid="uid://nulf6en4jdun" path="res://Assets/Map/Decorative/Furntiture/bookShelves.tscn" id="14_34yxr"]
+
+[node name="FurntitureSpawner" type="Node3D" groups=["furnitureSpawn"]]
+script = ExtResource("1_cj1oi")
+circleTable = ExtResource("2_87yfk")
+squareTable = ExtResource("3_q04mq")
+couch = ExtResource("4_ia2om")
+bed = ExtResource("5_8mmtb")
+chair = ExtResource("6_b6etw")
+brokenChai = ExtResource("7_w6871")
+desk = ExtResource("10_02ec6")
+counter = ExtResource("11_g576h")
+boxOne = ExtResource("12_3ecyr")
+boxTwo = ExtResource("13_p0pul")
+bookshelf = ExtResource("14_34yxr")

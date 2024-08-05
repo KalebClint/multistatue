@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bm47kpy7kcjk8"]
+
+[ext_resource type="Texture2D" uid="uid://5g646x7sshue" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_Hice.png" id="1_q313r"]
+
+[resource]
+resource_name = "Hice"
+cull_mode = 2
+albedo_texture = ExtResource("1_q313r")
+roughness = 0.5

@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d3yms43m2yxrd"]
+
+[ext_resource type="Texture2D" uid="uid://nw67hwvuwki4" path="res://Imports/MapPeices/Cells/Materials_CarpetTexture.jpg" id="1_2q8hi"]
+
+[resource]
+resource_name = "CarpetTexture"
+cull_mode = 2
+albedo_texture = ExtResource("1_2q8hi")

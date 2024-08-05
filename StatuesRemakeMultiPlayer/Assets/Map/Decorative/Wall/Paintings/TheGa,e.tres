@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bppro5qx5wiet"]
+
+[ext_resource type="Texture2D" uid="uid://doa42b6elp63h" path="res://Imports/MapPeices/Decorative/WallStuff/Paintings/paintings_LostTheGame.png" id="1_0m6sv"]
+
+[resource]
+resource_name = "TheGame"
+cull_mode = 2
+albedo_texture = ExtResource("1_0m6sv")
+roughness = 0.5
+emission_enabled = true
+emission_texture = ExtResource("1_0m6sv")

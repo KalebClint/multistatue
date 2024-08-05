@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bdmxybyvs0mlt"]
+
+[ext_resource type="Texture2D" uid="uid://v4aitx8nlpkm" path="res://Imports/MapPeices/Cells/Materials_TileTexture.jpg" id="1_jiqm8"]
+
+[resource]
+resource_name = "TileTexture"
+cull_mode = 2
+albedo_texture = ExtResource("1_jiqm8")
+metallic = 0.271186
+roughness = 0.635593

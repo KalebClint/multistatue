@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxcrhbruc18su"]
+
+[ext_resource type="Script" path="res://Scripts/StatueSpawner.gd" id="1_4x7eq"]
+[ext_resource type="PackedScene" uid="uid://g1hh3lur2fnr" path="res://Assets/Statue/statue.tscn" id="2_efqua"]
+
+[node name="StatueSpawner" type="Node3D"]
+script = ExtResource("1_4x7eq")
+statue = ExtResource("2_efqua")

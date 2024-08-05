@@ -143,13 +143,14 @@ func _physics_process(delta):
 	#Right, choose player to target. Ig should always be closest player?
 	#it only changes closest player every time deactivated then actived / when look at, so wont randomly go after someone
 	#else when they get closer, only when reset and they are closer.
-	targetPlayer = playersNode.get_node(str(closestPlayer))
-	if !seen && targetPlayer != null:
-		look_at(targetPlayer.global_transform.origin,Vector3.UP)
-		rotation.x = 0
-	
-	if !seen && withinRange && targetPlayer != null:
-		updateTargetLocation(targetPlayer.global_transform.origin)
+	if closestPlayer != 0:
+		targetPlayer = playersNode.get_node(str(closestPlayer))
+		if !seen && targetPlayer != null:
+			look_at(targetPlayer.global_transform.origin,Vector3.UP)
+			rotation.x = 0
+		
+		if !seen && withinRange && targetPlayer != null:
+			updateTargetLocation(targetPlayer.global_transform.origin)
 	
 func updateTargetLocation(targetLoc):
 	if targetLoc != null:
