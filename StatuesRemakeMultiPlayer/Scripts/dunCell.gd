@@ -142,8 +142,7 @@ func setCellTextures():
 	$Ceiling.material_override = matWall
 	
 func spawnThePlayer():
-	if spawner:
+	if spawner && GlobalScript.soloPlayer:
 		$"../../../Players/Player".global_position = playerSpawner.global_position
-	else:
-		if playerSpawner != null:
+	elif playerSpawner != null:
 			playerSpawner.free()

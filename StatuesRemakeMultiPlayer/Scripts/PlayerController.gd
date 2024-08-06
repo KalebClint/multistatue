@@ -26,7 +26,7 @@ var playerBeingKilledBrutaly = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20
-var pushForce = 3
+var pushForce = 75
 
 func _enter_tree():
 	if !GlobalScript.soloPlayer:

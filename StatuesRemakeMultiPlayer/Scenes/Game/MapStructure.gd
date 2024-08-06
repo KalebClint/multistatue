@@ -133,7 +133,7 @@ func generate():
 					
 		#Occaisionnaly and randomly throws errors.
 		await get_tree().create_timer(0.01).timeout #Maybe dis will fix it
-		var connection : PackedInt32Array = possible_connections.pick_random()
+		var connection : PackedInt32Array = possible_connections.pick_random()#Very random error every so often. I aint got no idea why.
 		for pc in possible_connections:
 			if rpv2[pc[0]].distance_squared_to(rpv2[pc[1]]) <\
 			rpv2[connection[0]].distance_squared_to(rpv2[connection[1]]):
