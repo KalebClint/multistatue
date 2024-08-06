@@ -5,7 +5,6 @@ var roomThing : int # 0 corner - 1 edge - 2 free - 3 doorway - 4 hallway
 var spawner = false
 
 @onready var playerSpawner = $PlayerSpawner
-@onready var player = $"../../../Players/Player"
 
 @onready var ceiling = $Ceiling
 @onready var floor = $Floor
@@ -60,7 +59,7 @@ func remove_door_left():
 func remove_door_right():
 	$DoorRight.free()
 	rightDoor = false
-
+	
 func setCellRoomType(type : int):
 	# Find the type of room it is from index, eg kitchen, bedroom, etc. Set Textures based on room.
 	# 0 = Generic || 1 = hall || 2 = door || 3 =  border || 4 = kitchen || 5 = bedroom || 6 = living
@@ -68,9 +67,10 @@ func setCellRoomType(type : int):
 	roomType = type
 	setRoomStuff()
 	if roomType == 12 && GlobalScript.playerSpawnSet == false: #Spawn
+		print("spawner")
 		GlobalScript.playerSpawnSet = true
 		spawner = true
-
+		
 func setRoomStuff():
 	
 	$Floor/FurntitureSpawner.setType(roomType,roomThing)
@@ -116,7 +116,7 @@ func setRoomStuff():
 	matWall = preload("res://Assets/Map/Rooms/BrickTexture.tres")
 		
 	setCellTextures()
-
+	
 func setCellTextures():
 	if frontWall:
 		$WallFront.material_override = matWall
@@ -131,7 +131,7 @@ func setCellTextures():
 	if rightWall:
 		$WallRight.material_override = matWall
 	if rightDoor:
-		$DoorRight.material_override = matWall
+		$DoorRight.material_override = matWall       
 		
 	if leftWall:
 		$WallLeft.material_override = matWall
@@ -143,6 +143,7 @@ func setCellTextures():
 	
 func spawnThePlayer():
 	if spawner:
-		player.global_position = playerSpawner.global_position
+		$"../../../Players/Player".global_position = playerSpawner.global_position
 	else:
-		playerSpawner.free()
+		if playerSpawner != null:
+			playerSpawner.free()

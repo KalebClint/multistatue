@@ -110,7 +110,7 @@ size = Vector3(3.18213, 0.800781, 1.72217)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5drhw"]
 size = Vector3(4.32019, 2.80035, 0.387207)
 
-[node name="Bed" type="Node3D"]
+[node name="Bed" type="Node3D" groups=["furn"]]
 transform = Transform3D(1.50687, 0, 0, 0, 1.50687, 0, 0, 0, 1.50687, 0, 0, 0)
 
 [node name="Bed" type="MeshInstance3D" parent="."]

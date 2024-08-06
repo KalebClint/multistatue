@@ -44,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_nmr1w")
 [sub_resource type="BoxShape3D" id="BoxShape3D_4d45v"]
 size = Vector3(0.117142, 1.08301, 0.744568)
 
-[node name="Chair" type="RigidBody3D"]
+[node name="Chair" type="RigidBody3D" groups=["furn"]]
 mass = 18.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

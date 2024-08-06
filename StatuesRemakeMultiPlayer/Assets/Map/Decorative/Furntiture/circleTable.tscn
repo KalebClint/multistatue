@@ -47,7 +47,7 @@ size = Vector3(0.236755, 1.15576, 0.204102)
 height = 0.059675
 radius = 1.01851
 
-[node name="CircleTable" type="RigidBody3D"]
+[node name="CircleTable" type="RigidBody3D" groups=["furn"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.86678, 0)
 mass = 50.0
 

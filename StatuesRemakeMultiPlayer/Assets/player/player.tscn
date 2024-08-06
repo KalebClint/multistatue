@@ -102,6 +102,7 @@ mesh = SubResource("CapsuleMesh_bwv83")
 
 [node name="Camera" type="Camera3D" parent="Neck"]
 transform = Transform3D(0.536511, 0, 0, 0, 0.536511, 0, 0, 0, 0.536511, 0, 0.754416, -0.423682)
+current = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Neck/Camera"]
 transform = Transform3D(1, 0, 0, 0, 0.999998, -0.00202456, 0, 0.00202456, 0.999998, 0.532914, -0.306357, -0.902867)

@@ -12,7 +12,7 @@ func _ready():
 	bakeMesh()
 	await get_tree().create_timer(5).timeout
 	startStoppingDaTorches()
-	if GlobalScript.soloPlayer:
+	if GlobalScript.soloPlayer: 
 		var player = playerScene.instantiate()
 		playersNode.add_child(player)
 
@@ -26,7 +26,6 @@ func _physics_process(delta):
 			get_tree().paused = false
 			pauseScreen.hide()
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 
 func addPlayer(id = 1):
 	var player = playerScene.instantiate()

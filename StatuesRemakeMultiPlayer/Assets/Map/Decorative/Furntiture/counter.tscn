@@ -107,7 +107,7 @@ size = Vector3(1.92749, 7.44153, 23.1088)
 [sub_resource type="BoxShape3D" id="BoxShape3D_je570"]
 size = Vector3(3.26471, 3.99036, 23.1036)
 
-[node name="Counter" type="Node3D"]
+[node name="Counter" type="Node3D" groups=["furn"]]
 
 [node name="Counter" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.485, 0, 0, 0, 3.84675, 0, 0, 0, 11.5547, 0, 3.67445, 0)

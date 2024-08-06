@@ -44,7 +44,7 @@ size = Vector3(0.909515, 0.909729, 0.659729)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mddgv"]
 size = Vector3(1.20554, 0.119812, 0.622406)
 
-[node name="BrokenChair" type="RigidBody3D"]
+[node name="BrokenChair" type="RigidBody3D" groups=["furn"]]
 mass = 20.0
 
 [node name="BrokenChair" type="MeshInstance3D" parent="."]

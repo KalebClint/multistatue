@@ -12,7 +12,7 @@ extends CharacterBody3D
 
 @onready var pauseMenu = $PauseMenu
 
-var lightStrength = 75
+var lightStrength = 70
 
 var SPEED = 13
 const JUMP_VELOCITY = 15
@@ -26,7 +26,7 @@ var playerBeingKilledBrutaly = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = 20
-var pushForce = 5
+var pushForce = 3
 
 func _enter_tree():
 	if !GlobalScript.soloPlayer:

@@ -9,16 +9,16 @@ func _physics_process(delta):
 		get_child(0).free()
 		spawnChair()
 		
-var chairChances : float = 0.05
-var circleTableChances : float = 0.1
-var tableChances : float = 0.15
-var brokenChairChances : float = 0.2
-var couchChances : float = 0.25
-var bedChances : float = 0.3
-var deskChances : float = 0.35
-var counterChances : float = 0.4
-var boxChances : float = 0.45
-var bookcaseChances : float = 0.5
+var chairChances : float = 0.03
+var circleTableChances : float = 0.08
+var tableChances : float = 0.13
+var brokenChairChances : float = 0.18
+var couchChances : float = 0.23
+var bedChances : float = 0.28
+var deskChances : float = 0.32
+var counterChances : float = 0.38
+var boxChances : float = 0.43
+var bookcaseChances : float = 0.48
 
 
 var roomType : int

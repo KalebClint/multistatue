@@ -4,7 +4,7 @@ extends CharacterBody3D
 #Global script has array that has each player name.
 
 #IT IS WORKING SO WELL WITHOUT DIFFICULTY
-#I AM SO SMAT
+#I AM SO SMAT 
 
 @onready var playersNode = $"../../Players"
 @onready var collision = $Collision
@@ -16,6 +16,7 @@ var speed = 10
 var pushForce = 5
 
 var targetPlayer
+var singlePlayer
 
 var ray1Used : bool
 var ray2Used : bool
@@ -45,8 +46,8 @@ var active : bool
 var becomeActive : bool
 var anoyingVarINeedToAdd: bool
 
-var boringChance = 0.6
-var behaviourChance = 0.2
+var boringChance = 0.7
+var behaviourChance = 0.15
 var behaviourAmount = 5
 
 # 0 = boring
@@ -57,6 +58,9 @@ var behaviourAmount = 5
 
 
 func _ready():  
+	if GlobalScript.soloPlayer:
+		singlePlayer = get_node("../../Players/Player")
+	
 	hathBeenSawed = false
 	camTotal = 0
 	FindClosestPlayer()
@@ -89,51 +93,70 @@ func _physics_process(delta):
 	lazerHitPlayer = false
 	
 	#Check if at least a player is in range
-	for player in GlobalScript.players:
-		var p
-		if player != 0:
-			p = playersNode.get_node(str(player))
-			
-		var d = global_position.distance_to(p.global_position)
-			
+	if !GlobalScript.soloPlayer:
+		for player in GlobalScript.players:
+			var p
+			if player != 0:
+				p = playersNode.get_node(str(player))
+				
+			var d = global_position.distance_to(p.global_position)
+				
+			if d < range:
+				withinRange = true
+	else:
+		var d = global_position.distance_to(singlePlayer.global_position)
+		closestPlayerDis = d
 		if d < range:
 			withinRange = true
-			
+				
 	if !withinRange:
-		await get_tree().create_timer(0.05).timeout
+		await get_tree().create_timer(0.1).timeout
 		if withinRange:
 			FindClosestPlayer()
 		
 	#Go through each player, create a ray and shoot them with said lazer. if lazer hits at least one player, statue can be seen.
 	#but only if statue is in cam. optimization (:
-	if camTotal > 0:
 	
-		for player in GlobalScript.players:
-			
-			var p = playersNode.get_node(str(player))
+	if !GlobalScript.soloPlayer:
+		if camTotal > 0:
+			for player in GlobalScript.players:
 				
-			var start = global_transform.origin
-			
-			var space_state = get_world_3d().direct_space_state
-			var ray_query = PhysicsRayQueryParameters3D.new()
-			ray_query.from = start
-			ray_query.to = p.global_transform.origin
-			ray_query.exclude = [self]
-			var result = space_state.intersect_ray(ray_query)
-			
-			if result:
-				var collider = result.collider
-				if collider.is_in_group("player"):
-					lazerHitPlayer = true
+				var p = playersNode.get_node(str(player))
+				
+				var start = global_transform.origin
+				
+				var space_state = get_world_3d().direct_space_state
+				var ray_query = PhysicsRayQueryParameters3D.new()
+				ray_query.from = start
+				ray_query.to = p.global_transform.origin
+				ray_query.exclude = [self]
+				var result = space_state.intersect_ray(ray_query)
+				
+				if result:
+					var collider = result.collider
+					if collider.is_in_group("player"):
+						lazerHitPlayer = true
+	else:
+		var start = global_transform.origin
 		
+		var space_state = get_world_3d().direct_space_state
+		var ray_query = PhysicsRayQueryParameters3D.new()
+		ray_query.from = start
+		ray_query.to = singlePlayer.global_transform.origin
+		ray_query.exclude = [self]
+		var result = space_state.intersect_ray(ray_query)
+		
+		if result:
+			var collider = result.collider
+			if collider.is_in_group("player"):
+				lazerHitPlayer = true
 	
 	if withinRange && camTotal > 0 && lazerHitPlayer:
 		seen = true
 	else:
 		seen = false
-		
-		
-	#Oki with all that fun stuff out of the wayu (thx mmultiplayer /:) now time for movement. ez clapz
+	
+	#Oki with all that fun stuff out of the wayu (thx mmultiplayer \: ) now time for movement. ez clapz
 	var currentLocation = global_transform.origin
 	var next_location = navAgent.get_next_path_position()
 	var newVelocity = (next_location - currentLocation).normalized() * speed
@@ -143,15 +166,20 @@ func _physics_process(delta):
 	#Right, choose player to target. Ig should always be closest player?
 	#it only changes closest player every time deactivated then actived / when look at, so wont randomly go after someone
 	#else when they get closer, only when reset and they are closer.
-	if closestPlayer != 0:
-		targetPlayer = playersNode.get_node(str(closestPlayer))
-		if !seen && targetPlayer != null:
+	if !GlobalScript.soloPlayer:
+		if closestPlayer != 0:
+			targetPlayer = playersNode.get_node(str(closestPlayer))
+	else:
+		targetPlayer = singlePlayer
+		
+	if targetPlayer != null:
+		if !seen:
 			look_at(targetPlayer.global_transform.origin,Vector3.UP)
 			rotation.x = 0
-		
-		if !seen && withinRange && targetPlayer != null:
-			updateTargetLocation(targetPlayer.global_transform.origin)
-	
+			
+			if withinRange:
+				updateTargetLocation(targetPlayer.global_transform.origin)
+
 func updateTargetLocation(targetLoc):
 	if targetLoc != null:
 		navAgent.target_position = targetLoc
@@ -228,18 +256,15 @@ func _on_visible_on_screen_notifier_3d_screen_exited():
 	if statueBehaviour == 1:
 		if hathBeenSawed == true:
 			#statueDisapear()
-			print("zac says bye")
+			pass
 			
 	if seen2 && statueBehaviour == 3:
-		print("zac says dis 2")
 		#statueDisapear()
+		pass
 			
 	if statueBehaviour == 2 || 3:
 		if becomeActive == true && !active:
-			print("zac says hi")
 			statueAppear()
-			
-	
 	
 
 

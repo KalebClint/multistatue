@@ -100,7 +100,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kfso6")
 
-[node name="FlowerPot" type="Node3D"]
+[node name="FlowerPot" type="Node3D" groups=["furn"]]
 
 [node name="Flower Pot" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.0624763, 0, 0, 0, 0.0915002, 0, 0, 0, 0.0624763, 0, 0.676188, 0)

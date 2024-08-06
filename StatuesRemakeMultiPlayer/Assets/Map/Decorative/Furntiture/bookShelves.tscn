@@ -545,7 +545,7 @@ shadow_mesh = SubResource("ArrayMesh_q4w5u")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kktjr"]
 size = Vector3(1.70502, 17.2988, 20.2092)
 
-[node name="BookShelves2" type="Node3D"]
+[node name="BookShelves2" type="Node3D" groups=["furn"]]
 
 [node name="BookShelves" type="MeshInstance3D" parent="."]
 transform = Transform3D(0, 0, -0.826849, 0, 4.38056, 0, 2.5, 0, 0, -2.00248, 4.22027, -3.09673)

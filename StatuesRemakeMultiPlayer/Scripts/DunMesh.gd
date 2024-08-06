@@ -154,5 +154,5 @@ func mapGenFinished():
 	await get_tree().create_timer(4).timeout
 	navRegion.bake_navigation_mesh()
 	await get_tree().create_timer(1).timeout
-	#get_tree().call_group("cell","spawnThePlayer") #Now just when they try to enter.
+	get_tree().call_group("cell","spawnThePlayer") #Now just when they try to enter.
 	loadingScreen.hide()
