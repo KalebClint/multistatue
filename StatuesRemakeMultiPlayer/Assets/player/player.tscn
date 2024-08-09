@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://dprgpjiv57hbc"]
+[gd_scene load_steps=12 format=3 uid="uid://dprgpjiv57hbc"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_25mtf"]
 [ext_resource type="Texture2D" uid="uid://b85dubv2v1y7k" path="res://Assets/player/flashlightTexture.jpg" id="2_o85q4"]
 [ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="3_kf22j"]
+[ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="4_g7ec2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lhtwv"]
 
@@ -131,3 +132,15 @@ target_position = Vector3(0, 0, -3)
 replication_config = SubResource("SceneReplicationConfig_e2rf1")
 
 [node name="PauseMenu" parent="." instance=ExtResource("3_kf22j")]
+visible = false
+
+[node name="ded" type="Label" parent="."]
+offset_left = 325.0
+offset_top = 247.0
+offset_right = 829.0
+offset_bottom = 384.0
+theme = ExtResource("4_g7ec2")
+theme_override_colors/font_color = Color(0.721569, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 100
+text = "YOU DIED"

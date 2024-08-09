@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var navMesh = $NavRegion
 @onready var pauseScreen = $PauseScreen
+@onready var world = $WorldEnvironment
 
 var paused = false
 
@@ -16,16 +17,9 @@ func _ready():
 		var player = playerScene.instantiate()
 		playersNode.add_child(player)
 
-func _physics_process(delta):
-	if Input.is_action_just_pressed("pause"):
-		if !paused:
-			get_tree().paused = true
-			pauseScreen.show()
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			get_tree().paused = false
-			pauseScreen.hide()
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func changeBrightness():
+	if world != null:
+		world.environment.adjustment_brightness = GlobalScript.brightness / 100
 
 func addPlayer(id = 1):
 	var player = playerScene.instantiate()

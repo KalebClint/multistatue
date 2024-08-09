@@ -47,7 +47,7 @@ data = PackedVector3Array(-0.9862, -6.6411, -0.1403, -1, 1, -1, -1, 1, -0.23, -0
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0.727533, 0)
 
 [node name="Desk" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.82339, 0, 0, 0, 0.0924447, 0, 0, 0, 2.16638, 0, 3.86724, 0)
+transform = Transform3D(4.06403, 0, 0, 0, 0.0778908, 0, 0, 0, 1.82532, 0, 2.3957, 0)
 mesh = SubResource("ArrayMesh_wsv14")
 skeleton = NodePath("")
 

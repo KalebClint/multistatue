@@ -9,7 +9,8 @@ extends Control
 var mouseInslider := false
 
 func _ready():
-	slider.value = slider.max_value
+	slider.value = slider.max_value / 2
+	GlobalScript.setVariables(sliderType,slider.value)
 
 func _input(event):
 	#Listen for mouse click, but only if mouse inside bar.

@@ -48,18 +48,18 @@ height = 0.059675
 radius = 1.01851
 
 [node name="CircleTable" type="RigidBody3D" groups=["furn"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.86678, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -8.39718, 0)
 mass = 50.0
 
 [node name="CircleTable" type="MeshInstance3D" parent="."]
-transform = Transform3D(5.77199, 0, 0, 0, 5.77199, 0, 0, 0, 5.77199, -0.000139562, 12.3171, 0.0126536)
+transform = Transform3D(4.00221, 0, 0, 0, 4.00221, 0, 0, 0, 4.00221, -8.74129e-05, 12.1771, 0.00792541)
 mesh = SubResource("ArrayMesh_joenb")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(5.57318, 0, 0, 0, 5.57318, 0, 0, 0, 5.57318, 0.000370678, 10.0794, -0.0336082)
+transform = Transform3D(3.86436, 0, 0, 0, 3.86436, 0, 0, 0, 3.86436, 0.00026638, 10.6255, -0.0241518)
 shape = SubResource("BoxShape3D_02mkl")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(5.57318, 0, 0, 0, 5.57318, 0, 0, 0, 5.57318, -0.000139562, 13.1848, 0.0126536)
+transform = Transform3D(3.86436, 0, 0, 0, 3.86436, 0, 0, 0, 3.86436, -8.74129e-05, 12.7787, 0.00792541)
 shape = SubResource("CylinderShape3D_p1wro")

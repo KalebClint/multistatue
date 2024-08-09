@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bsxspcewn0dgc"]
+[gd_scene load_steps=40 format=3 uid="uid://bsxspcewn0dgc"]
 
 [ext_resource type="Script" path="res://Scripts/dunCell.gd" id="1_wvc4q"]
 [ext_resource type="PackedScene" uid="uid://b2ulyymr6fxio" path="res://Assets/Map/entrance.tscn" id="2_814lu"]
@@ -46,6 +46,9 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_133dh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dugf3"]
+size = Vector3(20.2751, 1, 19.3603)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x8a02"]
 resource_name = "CarpetTexture"
@@ -380,6 +383,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.34142, -3.41788)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 19.6495, 0.0087128)
 mesh = SubResource("ArrayMesh_5j6yc")
 skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Ceiling"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18396, 0, 0.303131)
+shape = SubResource("BoxShape3D_dugf3")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.368773, 0.00871277)

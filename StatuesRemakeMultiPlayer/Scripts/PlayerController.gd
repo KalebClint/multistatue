@@ -11,6 +11,7 @@ extends CharacterBody3D
 @onready var interRay = $Neck/Camera/InterRay
 
 @onready var pauseMenu = $PauseMenu
+@onready var ded = $ded
 
 var lightStrength = 70
 
@@ -36,7 +37,8 @@ func _ready():
 	if !GlobalScript.soloPlayer:
 		camera.current = is_multiplayer_authority()
 	pauseMenu.hide()
-
+	
+	ded.hide()
 
 func _unhandled_input(event):
 	if !playerBeingKilledBrutaly:
@@ -121,10 +123,10 @@ func stopCheckingStatue(stat):
 	
 func playerKilled():
 	playerBeingKilledBrutaly = true
+	ded.show()
 	await get_tree().create_timer(3).timeout # Have Statue player animation of grabbing player
 	#Probably add some sort of spectator thing for other players, maybe control a statue.
 	#play sound too.
 	#For now, just main menu.
-	get_tree().change_scene_to_file("res://Scenes/Menus/mainMenu.tscn")
-	
+	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
 

@@ -4,12 +4,17 @@ extends CanvasLayer
 
 @onready var menu = $MainMenu
 @onready var options = $PauseMenu
+@onready var world = $WorldEnvironment
 
 
 func _ready():
+	get_tree().paused = false
 	options.hide()
 	menu.show()
 	GlobalScript.mainMenu = true
+
+func _process(delta):
+	world.environment.adjustment_brightness = GlobalScript.brightness / 100
 
 # Solo Play Button, when clicked loads in game as mode of single player.
 func OnPlayPressed():

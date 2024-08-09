@@ -1,5 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbkqen1t0s6p3"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_wwe4e"]
+size = Vector3(4.59918, 2.88818, 3.39514)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hvkvl"]
 resource_name = "Cardboard"
 cull_mode = 2
@@ -37,19 +40,16 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_exl24")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wwe4e"]
-size = Vector3(4.59918, 2.88818, 3.39514)
-
 [node name="BoxOne" type="Node3D" groups=["furn"]]
 
-[node name="Box One" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.3302, 0, 0, 0, 1.34493, 0, 0, 0, 1.69471, 0, 1.29201, 0)
-mesh = SubResource("ArrayMesh_ju4w1")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="RigidBody3D" parent="."]
+[node name="RigidBody" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.29201, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0299377, 0.136475, -0.0221558)
 shape = SubResource("BoxShape3D_wwe4e")
+
+[node name="Box One" type="MeshInstance3D" parent="RigidBody"]
+transform = Transform3D(2.3302, 0, 0, 0, 1.34493, 0, 0, 0, 1.69471, 0, 0, 0)
+mesh = SubResource("ArrayMesh_ju4w1")
+skeleton = NodePath("")

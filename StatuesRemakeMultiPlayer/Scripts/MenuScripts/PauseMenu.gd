@@ -32,6 +32,28 @@ var Resolutions: Dictionary = {
 @onready var windowed = $Options/TabBar/Video/Windowed
 @onready var borderless = $Options/TabBar/Video/Borderless
 
+#INPUT STUFF HERE
+
+@onready var fLabel = $Options/TabBar/Controls/Forward/forwardLabel
+@onready var bLabel = $Options/TabBar/Controls/Backward/backLabel
+@onready var lLabel = $Options/TabBar/Controls/Left/leftLabel
+@onready var iLabel = $Options/TabBar/Controls/Interact/interactLabel
+@onready var rLabel = $Options/TabBar/Controls/Right/rightLabel
+
+@onready var fButton = $Options/TabBar/Controls/Forward/Button
+@onready var bButton = $Options/TabBar/Controls/Backward/Button
+@onready var rButton = $Options/TabBar/Controls/Right/Button
+@onready var lButton = $Options/TabBar/Controls/Left/Button
+@onready var iButton = $Options/TabBar/Controls/Interact/Button
+
+
+
+var isRemaping = false
+var actionToRemap = null
+var buttonLabel = null
+var labelToChange = null
+var labelBack = ""
+
 func _ready():
 	
 	#Make sure General is the first tab on start. duh.
@@ -50,6 +72,17 @@ func _ready():
 		
 	for r in Resolutions:
 		resOptions.add_item(r)
+
+func _input(event):
+	if isRemaping:
+		if (event is InputEventKey):
+			InputMap.action_erase_events(actionToRemap)
+			InputMap.action_add_event(actionToRemap,event)
+			buttonLabel.text = event.as_text().trim_suffix(" (Physical)")
+			labelToChange.text = labelBack
+			isRemaping = false
+			
+		
 
 func TabChanged(tab):
 	#Hides all tabs, then shows coresponding one. duh.
@@ -77,11 +110,14 @@ func BackPressed(): # Signal For when back button pressed. duh.
 	hide()
 	if GlobalScript.mainMenu:
 		$"../MainMenu".show()
-		
+
 
 func LeaveGamePressed():
 	#gameScene.cowardLeft() figure out later
-	get_tree().quit()
+	#actually maybe just go to main menu
+	#get_tree().quit()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
 	# In main menu wont exist, but in game will leave mlutiplayer if needed, then go to main menu.
 
 func ContinuePressed():
@@ -123,3 +159,51 @@ func centerWindow():
 	var centerScreen = DisplayServer.screen_get_position()*DisplayServer.screen_get_size()/2
 	var WindowSize = get_window().get_size_with_decorations()
 	get_window().set_position(centerScreen*WindowSize/2)
+
+func remapKey():
+	isRemaping = true
+	labelToChange.text += "  ---  Press Key To Bind..."
+
+#OTHER INPUT STUFF IS HERE AS WELL
+
+func forwardButtonPressed():
+	if !isRemaping:
+		buttonLabel = fButton
+		actionToRemap = "forwardMovement"
+		labelToChange = fLabel
+		labelBack = "Forward Key"
+		remapKey()
+		
+		
+
+func backwardButtonPressed():
+	if !isRemaping:
+		buttonLabel = bButton
+		actionToRemap = "backwardMovement"
+		labelToChange = bLabel
+		labelBack = "Backward Key"
+		remapKey()
+
+func rightButtonPressed():
+	if !isRemaping:
+		buttonLabel = rButton
+		actionToRemap = "rightMovement"
+		labelToChange = rLabel
+		labelBack = "Right Key"
+		remapKey()
+
+func leftButtonPressed():
+	if !isRemaping:
+		buttonLabel = lButton
+		actionToRemap = "leftMovement"
+		labelToChange = lLabel
+		labelBack = "Left Key"
+		remapKey()
+
+func interactButtonPressed():
+	if !isRemaping:
+		buttonLabel = iButton
+		actionToRemap = "interact"
+		labelToChange = iLabel
+		labelBack = "Interact Key"
+		remapKey()

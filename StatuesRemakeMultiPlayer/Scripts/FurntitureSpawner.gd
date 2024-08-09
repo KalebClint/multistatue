@@ -3,11 +3,6 @@ extends Node3D
 
 func _ready():
 	spawnChair()
-	
-func _physics_process(delta):
-	if Input.is_action_just_pressed("interact"):
-		get_child(0).free()
-		spawnChair()
 		
 var chairChances : float = 0.03
 var circleTableChances : float = 0.08

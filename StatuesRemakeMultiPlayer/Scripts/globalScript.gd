@@ -2,10 +2,10 @@ extends Node
 
 #GlobablWorldEnviroment.enviroment.adjustment_brightness = BANANA
 
-var brightness : int
-var masterVolume : int
-var musicVolume : int
-var sfxVolume : int
+var brightness : float
+var masterVolume : float
+var musicVolume : float
+var sfxVolume : float
 
 var forwardKey
 var backwardKey
@@ -22,15 +22,22 @@ var players = []
 
 func setVariables(sliderType,_slider):
 	if sliderType == 0:#Brightness
+		#BTW currently brightness value will not carry over from main menu to game,
+		#becuz me lazy, and have very little time left. that just ezier
 		brightness = _slider
+		if !mainMenu:
+			get_tree().call_group("main","changeBrightness")
 	elif sliderType == 1:#MasterVolume
 		masterVolume = _slider
 	elif sliderType == 2:#MusicVolume
 		musicVolume = _slider
 	elif sliderType == 3:#SfxVolume
 		sfxVolume = _slider
+		
+
 
 var ummm = 0
+var hasVeryEvil = false
 
 var roomsGenerated = 0
 var maxRooms = 13

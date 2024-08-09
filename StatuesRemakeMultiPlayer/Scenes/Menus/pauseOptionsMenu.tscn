@@ -259,15 +259,157 @@ offset_bottom = -14.0
 text = "Brightness"
 
 [node name="Controls" type="Control" parent="Options/TabBar"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Credits" type="Control" parent="Options/TabBar"]
 visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Forward" type="Panel" parent="Options/TabBar/Controls"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = 97.0
+offset_right = 770.0
+offset_bottom = 144.0
+
+[node name="Button" type="Button" parent="Options/TabBar/Controls/Forward"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 865.0
+offset_bottom = 47.0
+theme = ExtResource("2_xni7g")
+theme_override_font_sizes/font_size = 25
+text = "W"
+
+[node name="forwardLabel" type="Label" parent="Options/TabBar/Controls/Forward"]
+layout_mode = 0
+offset_left = 21.0
+offset_right = 233.0
+offset_bottom = 49.0
+theme = ExtResource("2_xni7g")
+text = "Forward Key"
+vertical_alignment = 1
+
+[node name="Backward" type="Panel" parent="Options/TabBar/Controls"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = 158.0
+offset_right = 770.0
+offset_bottom = 205.0
+
+[node name="Button" type="Button" parent="Options/TabBar/Controls/Backward"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 865.0
+offset_bottom = 47.0
+theme = ExtResource("2_xni7g")
+theme_override_font_sizes/font_size = 25
+text = "S"
+
+[node name="backLabel" type="Label" parent="Options/TabBar/Controls/Backward"]
+layout_mode = 0
+offset_left = 20.0
+offset_right = 233.0
+offset_bottom = 49.0
+theme = ExtResource("2_xni7g")
+text = "Backward Key"
+vertical_alignment = 1
+
+[node name="Right" type="Panel" parent="Options/TabBar/Controls"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = 219.0
+offset_right = 770.0
+offset_bottom = 266.0
+
+[node name="Button" type="Button" parent="Options/TabBar/Controls/Right"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 865.0
+offset_bottom = 47.0
+theme = ExtResource("2_xni7g")
+theme_override_font_sizes/font_size = 25
+text = "D"
+
+[node name="rightLabel" type="Label" parent="Options/TabBar/Controls/Right"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 233.0
+offset_bottom = 49.0
+theme = ExtResource("2_xni7g")
+text = "Right Key"
+vertical_alignment = 1
+
+[node name="Left" type="Panel" parent="Options/TabBar/Controls"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = 286.0
+offset_right = 770.0
+offset_bottom = 333.0
+
+[node name="Button" type="Button" parent="Options/TabBar/Controls/Left"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 865.0
+offset_bottom = 47.0
+theme = ExtResource("2_xni7g")
+theme_override_font_sizes/font_size = 25
+text = "A"
+
+[node name="leftLabel" type="Label" parent="Options/TabBar/Controls/Left"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 233.0
+offset_bottom = 49.0
+theme = ExtResource("2_xni7g")
+text = "Left Key"
+vertical_alignment = 1
+
+[node name="Interact" type="Panel" parent="Options/TabBar/Controls"]
+layout_mode = 0
+offset_left = -175.0
+offset_top = 355.0
+offset_right = 770.0
+offset_bottom = 402.0
+
+[node name="Button" type="Button" parent="Options/TabBar/Controls/Interact"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 4.0
+offset_right = 865.0
+offset_bottom = 47.0
+theme = ExtResource("2_xni7g")
+theme_override_font_sizes/font_size = 25
+text = "E"
+
+[node name="interactLabel" type="Label" parent="Options/TabBar/Controls/Interact"]
+layout_mode = 0
+offset_left = 24.0
+offset_right = 233.0
+offset_bottom = 49.0
+theme = ExtResource("2_xni7g")
+text = "Interact Key"
+vertical_alignment = 1
+
+[node name="Credits" type="Control" parent="Options/TabBar"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Options/TabBar/Credits"]
+layout_mode = 0
+offset_left = -108.0
+offset_top = 150.0
+offset_right = 691.0
+offset_bottom = 360.0
+text = "Pretty much everything done by me, except I did use a human mesh model to create the statues. Would have done it myself but I didn't have time.
+
+Model - 
+
+"
 
 [connection signal="tab_changed" from="Options/TabBar" to="." method="TabChanged"]
 [connection signal="pressed" from="Options/TabBar/BackButton" to="." method="BackPressed"]
@@ -277,6 +419,11 @@ offset_bottom = 40.0
 [connection signal="toggled" from="Options/TabBar/Video/Windowed" to="." method="_on_windowed_toggled"]
 [connection signal="toggled" from="Options/TabBar/Video/Borderless" to="." method="_on_borderless_toggled"]
 [connection signal="item_selected" from="Options/TabBar/Video/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Options/TabBar/Controls/Forward/Button" to="." method="forwardButtonPressed"]
+[connection signal="pressed" from="Options/TabBar/Controls/Backward/Button" to="." method="backwardButtonPressed"]
+[connection signal="pressed" from="Options/TabBar/Controls/Right/Button" to="." method="rightButtonPressed"]
+[connection signal="pressed" from="Options/TabBar/Controls/Left/Button" to="." method="leftButtonPressed"]
+[connection signal="pressed" from="Options/TabBar/Controls/Interact/Button" to="." method="interactButtonPressed"]
 
 [editable path="Options/TabBar/General/Quit"]
 [editable path="Options/TabBar/General/Continue"]

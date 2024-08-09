@@ -1,11 +1,14 @@
 [gd_resource type="Theme" format=3 uid="uid://bh227o258gk1k"]
 
 [resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 11
 CheckBox/colors/font_color = Color(0.196078, 0.196078, 0.192157, 1)
 CheckBox/colors/font_outline_color = Color(0, 0, 0, 1)
 CheckBox/constants/outline_size = 5
 CheckBox/font_sizes/font_size = 16
-Label/colors/font_color = Color(0.196078, 0.196078, 0.192157, 1)
+Label/colors/font_color = Color(0.241579, 0.24158, 0.237004, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 5
 Label/font_sizes/font_size = 24

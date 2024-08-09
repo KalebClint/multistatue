@@ -50,12 +50,14 @@ var boringChance = 0.7
 var behaviourChance = 0.15
 var behaviourAmount = 5
 
+var vawyEvil = false
+var angwy = true
+
 # 0 = boring
 # 1 = disApear
 # 2 = aPear
 # 3 = aPearDisApear
 # 4 = shooty
-
 
 func _ready():  
 	if GlobalScript.soloPlayer:
@@ -68,8 +70,10 @@ func _ready():
 	#Pick behavior randomlyish
 	statueBehaviour = 0
 	var rand = randf()
-	if rand > 0:#boringChance:
+	if rand > boringChance:
 		decideBahaviour()
+	if rand > 0.9 && !GlobalScript.hasVeryEvil:
+		vawyEvil = true
 
 func decideBahaviour():
 	var index = 1
@@ -98,9 +102,7 @@ func _physics_process(delta):
 			var p
 			if player != 0:
 				p = playersNode.get_node(str(player))
-				
 			var d = global_position.distance_to(p.global_position)
-				
 			if d < range:
 				withinRange = true
 	else:
@@ -134,8 +136,12 @@ func _physics_process(delta):
 				
 				if result:
 					var collider = result.collider
-					if collider.is_in_group("player"):
+					if collider.is_in_group("furn"):
 						lazerHitPlayer = true
+						print("furn")
+					elif collider.is_in_group("player"):
+						lazerHitPlayer = true
+						print("player")
 	else:
 		var start = global_transform.origin
 		
@@ -148,13 +154,22 @@ func _physics_process(delta):
 		
 		if result:
 			var collider = result.collider
-			if collider.is_in_group("player"):
+			if collider.is_in_group("furn"):
+				lazerHitPlayer = true
+			elif collider.is_in_group("player"):
 				lazerHitPlayer = true
 	
 	if withinRange && camTotal > 0 && lazerHitPlayer:
 		seen = true
 	else:
 		seen = false
+		
+	if seen && vawyEvil:
+		await get_tree().create_timer(1)
+		if !GlobalScript.soloPlayer:
+			pass
+		else:
+			var player = playersNode.get_child(1)
 	
 	#Oki with all that fun stuff out of the wayu (thx mmultiplayer \: ) now time for movement. ez clapz
 	var currentLocation = global_transform.origin
@@ -200,8 +215,14 @@ func _on_nav_agent_velocity_computed(safe_velocity):
 				c.get_collider().apply_central_impulse(-c.get_normal() * pushForce)
 		
 func _on_nav_agent_target_reached():
-	#if !seen && !targetPlayer.playerBeingKilledBrutaly:
-	pass#targetPlayer.playerKilled()
+	if angwy:
+		if !GlobalScript.soloPlayer:
+			if !seen && !targetPlayer.playerBeingKilledBrutaly:
+				targetPlayer.playerKilled()
+		else:
+			var player = playersNode.get_child(1)
+			if !seen && !player.playerBeingKilledBrutaly:
+				player.playerKilled()
 		
 func FindClosestPlayer():
 	#find the closest player, call when activated (first player enters range) or becomes seen
