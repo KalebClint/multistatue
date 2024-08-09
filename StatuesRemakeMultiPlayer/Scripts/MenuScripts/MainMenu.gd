@@ -15,6 +15,7 @@ func _ready():
 
 func _process(delta):
 	world.environment.adjustment_brightness = GlobalScript.brightness / 100
+	options.brightCheck.modulate.a = GlobalScript.brightness / 150
 
 # Solo Play Button, when clicked loads in game as mode of single player.
 func OnPlayPressed():

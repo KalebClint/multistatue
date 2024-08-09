@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://hofdaai20k3v"]
+[gd_scene load_steps=8 format=3 uid="uid://hofdaai20k3v"]
 
 [ext_resource type="Script" path="res://Scripts/MenuScripts/MainMenu.gd" id="1_ycha7"]
 [ext_resource type="PackedScene" uid="uid://eyta44dyjhb4" path="res://Assets/UI/mainButton.tscn" id="2_vq8hd"]
 [ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="3_81mnq"]
 [ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="4_tg8sr"]
+
+[sub_resource type="Gradient" id="Gradient_tanqb"]
+colors = PackedColorArray(0, 0, 0, 1, 0.197937, 0.197937, 0.197937, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6go15"]
+gradient = SubResource("Gradient_tanqb")
 
 [sub_resource type="Environment" id="Environment_5sv04"]
 background_mode = 3
@@ -12,6 +18,14 @@ adjustment_enabled = true
 
 [node name="Main Menu" type="CanvasLayer"]
 script = ExtResource("1_ycha7")
+
+[node name="Back" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_6go15")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3
@@ -94,14 +108,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -242.0
-offset_right = 150.08
-offset_bottom = -141.96
+offset_left = -253.0
+offset_top = -254.0
+offset_right = 272.0
+offset_bottom = -57.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("3_81mnq")
-theme_override_font_sizes/normal_font_size = 80
+theme_override_font_sizes/normal_font_size = 120
 text = "STATUES"
 scroll_active = false
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://dprgpjiv57hbc"]
+[gd_scene load_steps=13 format=3 uid="uid://dprgpjiv57hbc"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerController.gd" id="1_25mtf"]
 [ext_resource type="Texture2D" uid="uid://b85dubv2v1y7k" path="res://Assets/player/flashlightTexture.jpg" id="2_o85q4"]
 [ext_resource type="PackedScene" uid="uid://bk48tarmsgeyo" path="res://Scenes/Menus/pauseOptionsMenu.tscn" id="3_kf22j"]
 [ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="4_g7ec2"]
+[ext_resource type="AudioStream" uid="uid://cp8h1p011x02w" path="res://Audio/the-hive-kevin-macleod-main-version-8440-04-11.mp3" id="5_3q121"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lhtwv"]
 
@@ -126,7 +127,7 @@ skeleton = NodePath("")
 target_position = Vector3(0, 0, -30)
 
 [node name="InterRay" type="RayCast3D" parent="Neck/Camera"]
-target_position = Vector3(0, 0, -3)
+target_position = Vector3(0, 0, -10)
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_e2rf1")
@@ -144,3 +145,9 @@ theme_override_colors/font_color = Color(0.721569, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 100
 text = "YOU DIED"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+process_mode = 3
+stream = ExtResource("5_3q121")
+autoplay = true
+bus = &"Music"

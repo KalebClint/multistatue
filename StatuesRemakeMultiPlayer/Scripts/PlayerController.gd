@@ -29,6 +29,9 @@ var playerBeingKilledBrutaly = false
 var gravity = 20
 var pushForce = 75
 
+@onready var music = $AudioStreamPlayer3D
+
+
 func _enter_tree():
 	if !GlobalScript.soloPlayer:
 		set_multiplayer_authority(name.to_int())
@@ -52,6 +55,7 @@ func _unhandled_input(event):
 					camera.rotate_x(-event.relative.y * sensetivity)
 					camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
+
 func _physics_process(delta):
 	
 	if !playerBeingKilledBrutaly:
@@ -59,8 +63,11 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("interact"):
 			var col = interRay.get_collider()
 			if col != null:
-				if col.is_in_group("Door"):
-					col.toggle()
+				if col.is_in_group("door"):
+					col.openOrClose()
+				elif col.is_in_group("am"):
+					col.playerPickUp()
+					
 		if Input.is_action_just_pressed("pause"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			pauseMenu.show()
@@ -122,11 +129,13 @@ func stopCheckingStatue(stat):
 	stat.seen = false
 	
 func playerKilled():
-	playerBeingKilledBrutaly = true
-	ded.show()
-	await get_tree().create_timer(3).timeout # Have Statue player animation of grabbing player
-	#Probably add some sort of spectator thing for other players, maybe control a statue.
-	#play sound too.
-	#For now, just main menu.
-	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
+	if GlobalScript.amuletStolen:
+		playerBeingKilledBrutaly = true
+		ded.show()
+		await get_tree().create_timer(3).timeout # Have Statue player animation of grabbing player
+		#Probably add some sort of spectator thing for other players, maybe control a statue.
+		#play sound too.
+		#For now, just main menu.
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
 

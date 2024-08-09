@@ -17,9 +17,21 @@ func _ready():
 		var player = playerScene.instantiate()
 		playersNode.add_child(player)
 
+func changeAudio():
+	var master = AudioServer.get_bus_index("Master")
+	AudioServer.set_bus_volume_db(master, GlobalScript.masterVolume / 100)  # Volume in decibels (dB)
+	
+	var music = AudioServer.get_bus_index("Music")
+	AudioServer.set_bus_volume_db(music, GlobalScript.masterVolume / 100)  # Volume in decibels (dB)
+	
+	var sfx = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(sfx, GlobalScript.masterVolume / 100)  # Volume in decibels (dB)
+	
+
 func changeBrightness():
 	if world != null:
 		world.environment.adjustment_brightness = GlobalScript.brightness / 100
+		pauseScreen.brightCheck.modulate.a = GlobalScript.brightness / 150
 
 func addPlayer(id = 1):
 	var player = playerScene.instantiate()

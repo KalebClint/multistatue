@@ -17,6 +17,8 @@ var Resolutions: Dictionary = {
 	"800x600":Vector2i(800,600),
 }
 
+@onready var brightCheck = $Options/TabBar/Video/BrightCheck
+
 @onready var resOptions = $Options/TabBar/Video/OptionButton
 @onready var gameScene = $".."
 
@@ -119,6 +121,7 @@ func LeaveGamePressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Menus/MainMenu.tscn")
 	# In main menu wont exist, but in game will leave mlutiplayer if needed, then go to main menu.
+	
 
 func ContinuePressed():
 	hide()

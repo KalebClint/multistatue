@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bk48tarmsgeyo"]
+[gd_scene load_steps=7 format=3 uid="uid://bk48tarmsgeyo"]
 
 [ext_resource type="Script" path="res://Scripts/MenuScripts/PauseMenu.gd" id="1_joiem"]
 [ext_resource type="Theme" uid="uid://bh227o258gk1k" path="res://Assets/UI/Styles/TextStyle.tres" id="2_xni7g"]
 [ext_resource type="PackedScene" uid="uid://bjefwgtou7ain" path="res://Assets/UI/BackButton.tscn" id="3_3mmdf"]
 [ext_resource type="PackedScene" uid="uid://eyta44dyjhb4" path="res://Assets/UI/mainButton.tscn" id="4_3fy7w"]
 [ext_resource type="PackedScene" uid="uid://wy3ian2coui8" path="res://Assets/UI/Slider.tscn" id="4_eaps2"]
+[ext_resource type="Texture2D" uid="uid://dxj4nudsludxk" path="res://Assets/brightness.png" id="6_bfq2l"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -258,6 +259,15 @@ offset_right = 367.0
 offset_bottom = -14.0
 text = "Brightness"
 
+[node name="BrightCheck" type="TextureRect" parent="Options/TabBar/Video"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 238.0
+offset_right = 476.0
+offset_bottom = 498.0
+texture = ExtResource("6_bfq2l")
+expand_mode = 1
+
 [node name="Controls" type="Control" parent="Options/TabBar"]
 visible = false
 anchors_preset = 0
@@ -401,14 +411,17 @@ offset_bottom = 40.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Options/TabBar/Credits"]
 layout_mode = 0
-offset_left = -108.0
-offset_top = 150.0
-offset_right = 691.0
-offset_bottom = 360.0
+offset_left = -105.0
+offset_top = 65.0
+offset_right = 694.0
+offset_bottom = 401.0
 text = "Pretty much everything done by me, except I did use a human mesh model to create the statues. Would have done it myself but I didn't have time.
 
 Model - 
 
+Audio - Music from #Uppbeat (free for Creators!):
+https://uppbeat.io/t/kevin-macleod/the-hive
+License code: PEAURCFSLDWQGHVT
 "
 
 [connection signal="tab_changed" from="Options/TabBar" to="." method="TabChanged"]

@@ -1,12 +1,13 @@
-[gd_scene load_steps=40 format=3 uid="uid://bsxspcewn0dgc"]
+[gd_scene load_steps=41 format=3 uid="uid://bsxspcewn0dgc"]
 
 [ext_resource type="Script" path="res://Scripts/dunCell.gd" id="1_wvc4q"]
 [ext_resource type="PackedScene" uid="uid://b2ulyymr6fxio" path="res://Assets/Map/entrance.tscn" id="2_814lu"]
 [ext_resource type="Texture2D" uid="uid://q47fgsjfu164" path="res://Imports/MapPeices/Cells/MapCell_TileTexture.jpg" id="2_o6eb4"]
 [ext_resource type="Texture2D" uid="uid://c01dm584ejq1o" path="res://Imports/MapPeices/Cells/MapCell_CarpetTexture.jpg" id="3_bcy7v"]
-[ext_resource type="PackedScene" uid="uid://c5ev5ckns0i7u" path="res://Assets/Map/Decorative/Wall/wallSpawner.tscn" id="4_bu5q5"]
 [ext_resource type="PackedScene" uid="uid://dfef1iwka6li1" path="res://Assets/Map/Decorative/furntitureSpawner.tscn" id="5_apb4s"]
 [ext_resource type="PackedScene" uid="uid://dxcrhbruc18su" path="res://Assets/Statue/statueSpawner.tscn" id="7_5vmhd"]
+[ext_resource type="PackedScene" uid="uid://gsv3iso8wc75" path="res://Assets/Map/Door.tscn" id="8_fjhfj"]
+[ext_resource type="PackedScene" uid="uid://csoplbnq432mq" path="res://Assets/amulet.tscn" id="8_ynx6p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sdvcc"]
 resource_name = "TileTexture"
@@ -385,6 +386,7 @@ mesh = SubResource("ArrayMesh_5j6yc")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Ceiling"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ceiling/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18396, 0, 0.303131)
@@ -396,6 +398,8 @@ mesh = SubResource("ArrayMesh_kd2i5")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_gg2t6")
@@ -409,12 +413,10 @@ mesh = SubResource("ArrayMesh_qmk2p")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallBack"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallBack/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_nu25q")
-
-[node name="WallSpawner2" parent="WallBack" instance=ExtResource("4_bu5q5")]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -0.291971, -0.0563555, -1.11543)
 
 [node name="WallFront" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -9.63814)
@@ -422,12 +424,10 @@ mesh = SubResource("ArrayMesh_h2iwp")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallFront"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallFront/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_xbemn")
-
-[node name="WallSpawner" parent="WallFront" instance=ExtResource("4_bu5q5")]
-transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, -0.0563555, 0.291971, 0.923432)
 
 [node name="WallRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66154, 10, 0)
@@ -435,12 +435,10 @@ mesh = SubResource("ArrayMesh_lku3o")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallRight"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallRight/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_3tple")
-
-[node name="WallSpawner2" parent="WallRight" instance=ExtResource("4_bu5q5")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.11777, 0.291971, 0.2882)
 
 [node name="WallLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66154, 10, 0)
@@ -448,12 +446,10 @@ mesh = SubResource("ArrayMesh_364ca")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="WallLeft"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WallLeft/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_awppc")
-
-[node name="WallSpawner3" parent="WallLeft" instance=ExtResource("4_bu5q5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.27538, 0.291971, 0.2882)
 
 [node name="DoorBack" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0314749, 11.3111, 9.66154)
@@ -461,9 +457,13 @@ mesh = SubResource("ArrayMesh_o046h")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DoorBack"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorBack/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_2jrtj")
+
+[node name="DoorBack" parent="DoorBack" instance=ExtResource("8_fjhfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.0212, -3.08374, 0.372542)
 
 [node name="DoorFront" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0314747, 11.3111, -9.66154)
@@ -471,9 +471,13 @@ mesh = SubResource("ArrayMesh_1vrnv")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DoorFront"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorFront/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_l8oag")
+
+[node name="DoorFront" parent="DoorFront" instance=ExtResource("8_fjhfj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.08415, -3.08374, 0.610056)
 
 [node name="DoorLeft" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.66154, 11.3111, -0.0314746)
@@ -481,9 +485,13 @@ mesh = SubResource("ArrayMesh_hymgh")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DoorLeft"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorLeft/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_autbt")
+
+[node name="DoorLeft" parent="DoorLeft" instance=ExtResource("8_fjhfj")]
+transform = Transform3D(7.10543e-15, 0, -1, 0, 1, 0, 1, 0, 7.10543e-15, -0.797177, -3.08374, -5.2394)
 
 [node name="DoorRight" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66729, 11.3111, -0.0314746)
@@ -491,12 +499,19 @@ mesh = SubResource("ArrayMesh_jkvq6")
 skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="DoorRight"]
+collision_layer = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DoorRight/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_mu4pg")
+
+[node name="DoorRight" parent="DoorRight" instance=ExtResource("8_fjhfj")]
+transform = Transform3D(7.10543e-15, 0, -1, 0, 1, 0, 1, 0, 7.10543e-15, -0.59788, -3.08374, -5.2394)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.81853, 13.1824)
 
 [node name="StatueSpawner" parent="." instance=ExtResource("7_5vmhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.460425, 0.730673, -0.0397305)
+
+[node name="Amulet" parent="." instance=ExtResource("8_ynx6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12114, 2.01086, 0.983868)

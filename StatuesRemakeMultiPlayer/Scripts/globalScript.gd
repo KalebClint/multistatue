@@ -2,6 +2,9 @@ extends Node
 
 #GlobablWorldEnviroment.enviroment.adjustment_brightness = BANANA
 
+var amuletSpawned = false
+var amuletStolen = false
+
 var brightness : float
 var masterVolume : float
 var musicVolume : float
@@ -29,12 +32,17 @@ func setVariables(sliderType,_slider):
 			get_tree().call_group("main","changeBrightness")
 	elif sliderType == 1:#MasterVolume
 		masterVolume = _slider
+		if !mainMenu:
+			get_tree().call_group("main","changeAudio")
 	elif sliderType == 2:#MusicVolume
 		musicVolume = _slider
+		if !mainMenu:
+			get_tree().call_group("main","changeAudio")
 	elif sliderType == 3:#SfxVolume
 		sfxVolume = _slider
+		if !mainMenu:
+			get_tree().call_group("main","changeAudio")
 		
-
 
 var ummm = 0
 var hasVeryEvil = false

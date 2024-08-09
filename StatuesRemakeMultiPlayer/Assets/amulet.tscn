@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://csoplbnq432mq"]
+
+[ext_resource type="Script" path="res://Assets/amulet.gd" id="1_rl3ri"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r55pm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gyvxq"]
+albedo_color = Color(1, 0.313726, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aql1w"]
+material = SubResource("StandardMaterial3D_gyvxq")
+
+[node name="Amulet" type="StaticBody3D" groups=["am"]]
+script = ExtResource("1_rl3ri")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_r55pm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_aql1w")

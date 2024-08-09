@@ -53,6 +53,10 @@ var behaviourAmount = 5
 var vawyEvil = false
 var angwy = true
 
+var closestStatToDoor = 100
+var closestDoor
+
+
 # 0 = boring
 # 1 = disApear
 # 2 = aPear
@@ -89,6 +93,14 @@ func decideBahaviour():
 		collision.disabled = true
 
 func _physics_process(delta):
+	
+	closestStatToDoor = 100
+	get_tree().call_group("door","findDisToStat",self)
+	if closestStatToDoor < 10 && closestDoor.opened == false && camTotal == 0:
+		print("openingDoor")
+		closestDoor.openOrClose()
+	
+	
 	if hathBeenSawed != true && seen:
 		hathBeenSawed = true
 	
@@ -142,9 +154,8 @@ func _physics_process(delta):
 					elif collider.is_in_group("player"):
 						lazerHitPlayer = true
 						print("player")
-	else:
+	elif get_world_3d() != null:
 		var start = global_transform.origin
-		
 		var space_state = get_world_3d().direct_space_state
 		var ray_query = PhysicsRayQueryParameters3D.new()
 		ray_query.from = start
@@ -276,13 +287,12 @@ func _on_visible_on_screen_notifier_3d_screen_exited():
 	camTotal -= 1
 	if statueBehaviour == 1:
 		if hathBeenSawed == true:
-			#statueDisapear()
-			pass
+			statueDisapear()
+			
 			
 	if seen2 && statueBehaviour == 3:
-		#statueDisapear()
-		pass
-			
+		statueDisapear()
+		
 	if statueBehaviour == 2 || 3:
 		if becomeActive == true && !active:
 			statueAppear()
